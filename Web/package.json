@@ -8,7 +8,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "i": "npm i"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "ngx-bootstrap": "^5.2.0",
     "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
+    "sass": "^1.23.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

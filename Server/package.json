@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "prettier": "prettier",
-    "lint": "eslint"
+    "lint": "eslint",
+    "i": "npm i"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
