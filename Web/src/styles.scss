@@ -1,11 +1,6 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/ionicons/3.0.0/css/ionicons.min.css);
-@import url(https://fonts.googleapis.com/css?family=Nunito:200, 300, 400, 700);
-@import url(
-  https://fonts.googleapis.com/css?family=Comfortaa:200,
-  300,
-  400,
-  700
-);
+@import url(https://fonts.googleapis.com/css?family=Nunito:200,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Comfortaa:200,300,400,700);
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -1263,7 +1258,7 @@ textarea.form-control.is-invalid {
   padding: 0.375rem 0.75rem;
   font-size: 1.1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border-radius: 2rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

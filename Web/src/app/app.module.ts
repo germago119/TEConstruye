@@ -14,6 +14,7 @@ import { EmployeeComponent } from './Admin/employee/employee.component';
 import { MaterialComponent } from './Admin/material/material.component';
 import { HoursComponent } from './Admin/hours/hours.component';
 import { ExpensesComponent } from './Admin/expenses/expenses.component';
+import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ExpensesComponent } from './Admin/expenses/expenses.component';
     EmployeeComponent,
     MaterialComponent,
     HoursComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    DashboardComponent
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

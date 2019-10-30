@@ -1,0 +1,170 @@
+<div class="view">
+  <img src="/assets/img/cityBanner.jpg" class="img-fluid" alt="placeholder" />
+  <div class="mask flex-center waves-effect waves-light rgba-teal-strong"></div>
+</div>
+
+<h1 class="text-center text-primary py-5">Vista Administración</h1>
+
+<div class="container-fluid py-5">
+  <div class="card-columns">
+    <div class="card border-warning" routerLink="/ing">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-warning font-weight-bold">
+          Registro de Ingenieros y Arquitectos
+        </h4>
+        <p class="card-text text-light">
+          Donde se almacenará el nombre del ingeniero, código del ingeniero,
+          especialidad (civil, eléctrico, construcción), cedula, número de
+          teléfono.
+        </p>
+        <a class="btn btn-outline-warning" routerLink="/ing">Registrar</a>
+      </div>
+    </div>
+    <div class="card border-info" routerLink="/client">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-info font-weight-bold ">
+          Registro de Clientes
+        </h4>
+        <p class="card-text text-light ">
+          Donde se almacenará el nombre del cliente, cédula, número de teléfono.
+          En este caso específico NO se desea tener los clientes duplicados con
+          TECres (se debe implementar una sincronización con TECres)
+        </p>
+        <a class="btn btn-outline-info" routerLink="/client">Registrar</a>
+      </div>
+    </div>
+    <div class="card border-danger" routerLink="/employee">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-danger ">Registro de empleados</h4>
+        <p class="card-text text-light ">
+          Donde se almacenará el nombre del empleado, cédula, número de
+          teléfono, pago por hora
+        </p>
+        <a class="btn btn-outline-danger" routerLink="/employee">Registrar</a>
+      </div>
+    </div>
+    <div class="card border-primary">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-primary ">Registro de Etapas.</h4>
+        <p class="card-text text-light ">
+          Deberá almacenar una descripción general
+        </p>
+        <a class="btn btn-outline-primary">Registrar</a>
+      </div>
+    </div>
+    <div class="card border-warning">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-warning font-weight-bold">
+          Generación de presupuesto.
+        </h4>
+        <p class="card-text text-light">
+          Por cada una de las etapas la aplicación deberá generar un total en
+          colones y finalmente sumará todas las etapas dando el presupuesto
+          final.
+        </p>
+        <a class="btn btn-outline-warning">Generar</a>
+      </div>
+    </div>
+    <div class="card border-info">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-info font-weight-bold ">
+          Asignación de horas de un empleado a un proyecto.
+        </h4>
+        <p class="card-text text-light ">
+          Asignación de horas de un empleado a un proyecto.
+        </p>
+        <a class="btn btn-outline-info">Asignar</a>
+      </div>
+    </div>
+    <div class="card border-danger">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-danger ">
+          Asignación de gastos de un proyecto.
+        </h4>
+        <p class="card-text text-light ">
+          Por cada una de las compras que se realicen al proyecto se debe poder
+          agregar el detalle de la compra (proveedor, numero de factura,
+          materiales comprados y foto de la factura) con su respectiva factura.
+        </p>
+        <a class="btn btn-outline-danger">Asignar</a>
+      </div>
+    </div>
+    <div class="card border-primary">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-primary ">Publicación en TECres</h4>
+        <p class="card-text text-light ">
+          Una vez finalizada una obra el administrador tendrá la opción de
+          publicarla en TECres con solo pulsar un botón.
+        </p>
+        <a class="btn btn-xl btn-outline-primary" style="border-radius: 2rem"
+          >Publicar</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 class="text-center text-warning py-5">Reportes</h1>
+
+<div class="container-fluid py-5">
+  <div class="card-columns">
+    <div class="card border-warning">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-warning font-weight-bold">
+          Generar presupuesto
+        </h4>
+        <p class="card-text text-light">
+          El sistema debe mostrar por cada uno de los proyectos el presupuesto
+          total del proyecto agrupado por etapas.
+        </p>
+        <a class="btn btn-outline-warning">Generar</a>
+      </div>
+    </div>
+    <div class="card border-info">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-info font-weight-bold ">
+          Generar planilla.
+        </h4>
+        <p class="card-text text-light ">
+          El sistema debe mostrar por semana todos los empleados a los que se
+          les ha registrado horas, el total de efectivo que debe ser pagado a
+          cada empleado agrupado por proyecto en el que ha trabajado.
+        </p>
+        <a class="btn btn-outline-info">Generar</a>
+      </div>
+    </div>
+    <div class="card border-danger">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-danger ">Reporte de Gastos.</h4>
+        <p class="card-text text-light ">
+          El sistema debe mostrar por semana todos los gastos que se han
+          registrado para cada proyecto.
+        </p>
+        <a class="btn btn-outline-danger">Reportar</a>
+      </div>
+    </div>
+    <div class="card border-primary">
+      <img class="card-img-top" src="..." alt="Card image cap" />
+      <div class="card-body text-center">
+        <h4 class="card-title text-primary ">Reporte de Estado.</h4>
+        <p class="card-text text-light ">
+          El sistema debe mostrar un estado financiero del proyecto por cada una
+          de las etapas y totalizado, en el mismo se debe mostrar el presupuesto
+          versus lo realmente gastado.
+        </p>
+        <a class="btn btn-outline-primary">Reportar</a>
+      </div>
+    </div>
+  </div>
+</div>

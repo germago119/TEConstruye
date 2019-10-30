@@ -1,16 +1,29 @@
-<h1 class="text-light" WEB FUNCIONA></h1>
-<div class="jumbotron bg-dark">
-  <h1 class="display-4 text-info">Hello, world!</h1>
-  <p class="lead text-warning">
-    This is a simple hero unit, a simple jumbotron-style component for calling
-    extra attention to featured content or information.
-  </p>
-  <hr class="my-4 text-light" />
-  <p>
-    It uses utility classes for typography and spacing to space content out
-    within the larger container.
-  </p>
-  <a class="btn btn-outline-primary btn-lg" href="#" role="button"
-    >Learn more</a
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand font-weight-light" href="#">TEConstruye</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
   >
-</div>
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#"
+        >Home <span class="sr-only">(current)</span></a
+      >
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a
+        class="nav-item nav-link text-primary font-weight-bold"
+        routerLink="/admin"
+        >Dashboard</a
+      >
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
