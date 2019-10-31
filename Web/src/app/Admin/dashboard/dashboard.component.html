@@ -46,17 +46,17 @@
         <a class="btn btn-outline-danger" routerLink="/employee">Registrar</a>
       </div>
     </div>
-    <div class="card border-primary">
+    <div class="card border-primary" routerLinkActive="/etapas">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-primary ">Registro de Etapas.</h4>
         <p class="card-text text-light ">
           Deberá almacenar una descripción general
         </p>
-        <a class="btn btn-outline-primary">Registrar</a>
+        <a class="btn btn-outline-primary" routerLink="/etapas">Registrar</a>
       </div>
     </div>
-    <div class="card border-warning">
+    <div class="card border-warning" routerLink="/presupuesto">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-warning font-weight-bold">
@@ -67,10 +67,10 @@
           colones y finalmente sumará todas las etapas dando el presupuesto
           final.
         </p>
-        <a class="btn btn-outline-warning">Generar</a>
+        <a class="btn btn-outline-warning" routerLink="/presupuesto">Generar</a>
       </div>
     </div>
-    <div class="card border-info">
+    <div class="card border-info" routerLink="/hours">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-info font-weight-bold ">
@@ -79,10 +79,10 @@
         <p class="card-text text-light ">
           Asignación de horas de un empleado a un proyecto.
         </p>
-        <a class="btn btn-outline-info">Asignar</a>
+        <a class="btn btn-outline-info" routerLink="/hours">Asignar</a>
       </div>
     </div>
-    <div class="card border-danger">
+    <div class="card border-danger" routerLink="/expenses">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-danger ">
@@ -93,7 +93,7 @@
           agregar el detalle de la compra (proveedor, numero de factura,
           materiales comprados y foto de la factura) con su respectiva factura.
         </p>
-        <a class="btn btn-outline-danger">Asignar</a>
+        <a class="btn btn-outline-danger" routerLink="/expenses">Asignar</a>
       </div>
     </div>
     <div class="card border-primary">
@@ -116,7 +116,7 @@
 
 <div class="container-fluid py-5">
   <div class="card-columns">
-    <div class="card border-warning">
+    <div class="card border-warning" routerLink="/rpresupuesto">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-warning font-weight-bold">
@@ -126,10 +126,12 @@
           El sistema debe mostrar por cada uno de los proyectos el presupuesto
           total del proyecto agrupado por etapas.
         </p>
-        <a class="btn btn-outline-warning">Generar</a>
+        <a class="btn btn-outline-warning" routerLink="/rpresupuesto"
+          >Generar</a
+        >
       </div>
     </div>
-    <div class="card border-info">
+    <div class="card border-info" routerLink="/rplanilla">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-info font-weight-bold ">
@@ -140,10 +142,10 @@
           les ha registrado horas, el total de efectivo que debe ser pagado a
           cada empleado agrupado por proyecto en el que ha trabajado.
         </p>
-        <a class="btn btn-outline-info">Generar</a>
+        <a class="btn btn-outline-info" routerLink="/rplanilla">Generar</a>
       </div>
     </div>
-    <div class="card border-danger">
+    <div class="card border-danger" routerLink="/rgastos">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-danger ">Reporte de Gastos.</h4>
@@ -151,10 +153,10 @@
           El sistema debe mostrar por semana todos los gastos que se han
           registrado para cada proyecto.
         </p>
-        <a class="btn btn-outline-danger">Reportar</a>
+        <a class="btn btn-outline-danger" routerLink="/rgastos">Reportar</a>
       </div>
     </div>
-    <div class="card border-primary">
+    <div class="card border-primary" routerLink="/restado">
       <img class="card-img-top" src="..." alt="Card image cap" />
       <div class="card-body text-center">
         <h4 class="card-title text-primary ">Reporte de Estado.</h4>
@@ -163,7 +165,7 @@
           de las etapas y totalizado, en el mismo se debe mostrar el presupuesto
           versus lo realmente gastado.
         </p>
-        <a class="btn btn-outline-primary">Reportar</a>
+        <a class="btn btn-outline-primary" routerLink="/restado">Reportar</a>
       </div>
     </div>
   </div>

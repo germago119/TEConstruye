@@ -7,15 +7,30 @@ import { ExpensesComponent } from './Admin/expenses/expenses.component';
 import { HoursComponent } from './Admin/hours/hours.component';
 import { IngComponent } from './Admin/ing/ing.component';
 import { MaterialComponent } from './Admin/material/material.component';
+import { EtapasComponent } from './Shared/etapas/etapas.component';
+import { PresupuestoComponent } from './Shared/presupuesto/presupuesto.component';
+import { EstadoComponent } from './Reports/estado/estado.component';
+import { GastosComponent } from './Reports/gastos/gastos.component';
+import { PlanillaComponent } from './Reports/planilla/planilla.component';
+import { RPresupuestoComponent } from './Reports/r-presupuesto/r-presupuesto.component';
 
 const routes: Routes = [
+  // Admin
   { path: 'admin', component: DashboardComponent },
   { path: 'client', component: ClientComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'expenses', component: ExpensesComponent },
   { path: 'hours', component: HoursComponent },
   { path: 'ing', component: IngComponent },
-  { path: 'material', component: MaterialComponent }
+  { path: 'material', component: MaterialComponent },
+  // SHARED
+  { path: 'etapas', component: EtapasComponent },
+  { path: 'presupuesto', component: PresupuestoComponent },
+  // Reports
+  { path: 'restado', component: EstadoComponent },
+  { path: 'rgastos', component: GastosComponent },
+  { path: 'rplanilla', component: PlanillaComponent },
+  { path: 'rpresupuesto', component: RPresupuestoComponent }
   // {path: '', component: },
 ];
 
