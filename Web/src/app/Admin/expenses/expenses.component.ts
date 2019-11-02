@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { FormGroup } from '@angular/forms';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-expenses',
@@ -6,7 +9,59 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expenses.component.sass']
 })
 export class ExpensesComponent implements OnInit {
-  constructor() {}
+  form = new FormGroup({});
+  model: any = {};
+  options: FormlyFormOptions = {};
+
+  fields: FormlyFieldConfig[] = [
+    {
+      key: 'proveedor',
+      type: 'input',
+      templateOptions: {
+        placeholder: 'IKEA',
+        label: 'Proveedor: ',
+        description: 'Proveedor debe ser texto',
+        required: true,
+        addonLeft: {
+          class: 'icon lnr lnr-users bg-transparent border-primary'
+        }
+      }
+    },
+    {
+      key: 'numeroFactura',
+      type: 'input',
+      templateOptions: {
+        type: 'number',
+        placeholder: '***',
+        label: 'Numero de Factura',
+        description: 'Numero de Factura debe ser un numero PLZ',
+        required: true,
+        addonLeft: {
+          class: 'icon lnr lnr-license bg-transparent border-primary'
+        }
+      }
+    },
+    {
+      key: 'materials',
+      type: 'select',
+      templateOptions: {
+        label: 'Materiales: ',
+        options: this.dataService.getMaterials(),
+        valueProp: 'id',
+        labelProp: 'name',
+        required: true,
+        addonLeft: {
+          class: 'icon lnr lnr-cart bg-transparent border-primary'
+        }
+      }
+    }
+  ];
+
+  submit() {
+    alert(JSON.stringify(this.model));
+  }
+
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {}
 }

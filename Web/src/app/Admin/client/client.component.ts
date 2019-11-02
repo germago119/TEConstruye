@@ -7,7 +7,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './client.component.html',
   styleUrls: ['./client.component.sass']
 })
-export class ClientComponent {
+export class ClientComponent implements OnInit {
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -22,8 +22,7 @@ export class ClientComponent {
         description: 'Nombre debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon ion-ios-contact bg-transparent border-primary',
-          size: '22'
+          class: 'icon ion-ios-contact bg-transparent border-primary'
         }
       }
     },
@@ -36,8 +35,7 @@ export class ClientComponent {
         description: 'Apellido debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon ion-ios-bowtie bg-transparent border-primary',
-          size: '16'
+          class: 'icon ion-ios-bowtie bg-transparent border-primary '
         }
       }
     },
@@ -50,8 +48,7 @@ export class ClientComponent {
         description: 'Apellido debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon ion-ios-color-filter bg-transparent border-primary',
-          size: '16'
+          class: 'icon ion-ios-flower bg-transparent border-primary'
         }
       }
     },
@@ -67,7 +64,7 @@ export class ClientComponent {
         min: 100000000,
         max: 999999999,
         addonLeft: {
-          class: 'syss icon ion-ios-finger-print bg-transparent border-primary'
+          class: 'icon ion-ios-finger-print bg-transparent border-primary'
         }
       }
     },
@@ -83,11 +80,15 @@ export class ClientComponent {
         min: 10000000,
         max: 99999999,
         addonLeft: {
-          class: 'icon ion-ios-call bg-transparent border-primary syss'
+          class: 'icon ion-ios-call bg-transparent border-primary'
         }
       }
     }
   ];
+
+  constructor() {}
+
+  ngOnInit() {}
 
   submit() {
     alert(JSON.stringify(this.model));
