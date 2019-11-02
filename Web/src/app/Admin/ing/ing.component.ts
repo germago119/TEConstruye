@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ing.component.sass']
 })
 export class IngComponent implements OnInit {
+  nameInputData;
+  descripcionInputData;
+  costInputData;
+
+  newAd() {}
+
   constructor() {}
 
   ngOnInit() {}

@@ -1,1 +1,17 @@
-<p>client works!</p>
+<div class="container-fluid my-3">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <formly-form
+      [model]="model"
+      [fields]="fields"
+      [options]="options"
+      [form]="form"
+    ></formly-form>
+    <button
+      type="submit"
+      class="btn btn-outline-primary submit-button"
+      [disabled]="!form.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

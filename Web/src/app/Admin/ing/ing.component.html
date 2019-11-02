@@ -1,1 +1,142 @@
-<p>ing works!</p>
+<body>
+  <div class="container py-5">
+    <div
+      id="registerVendedor-row"
+      class="row justify-content-center align-items-center"
+    >
+      <div id="registerVendedor-column" class="col-md-6">
+        <div id="registerVendedor-box" class="col-md-12">
+          <form id="registerVendedor-form" class="form" action="" method="post">
+            <h3 class="text-center text-warning">
+              Registro de un nuevo tipo de anuncio
+            </h3>
+            <!--            Nombre-->
+            <div class="form-group">
+              <label for="name" class="text-warning">Nombre:</label><br />
+              <input
+                required
+                [(ngModel)]="nameInputData"
+                #name="ngModel"
+                type="text"
+                name="name"
+                id="name"
+                class="form-control border-warning bg-transparent text-light"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="name.touched && !name.valid"
+              >
+                <div *ngIf="name.errors?.required">
+                  Debe ingresar el nombre.
+                </div>
+              </div>
+            </div>
+            <!--            codigo-->
+            <div class="form-group">
+              <label for="codigolabel" class="text-warning">Codigo:</label
+              ><br />
+              <input
+                required
+                [(ngModel)]="descripcionInputData"
+                #codigo="ngModel"
+                type="text"
+                name="codigolabel"
+                id="codigolabel"
+                class="form-control border-warning bg-transparent text-light"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="codigo.touched && !codigo.valid"
+              >
+                <div *ngIf="codigo.errors?.required">
+                  Debe ingresar una codigo.
+                </div>
+              </div>
+            </div>
+            <!--            especialidad-->
+            <div class="form-group">
+              <label for="costo" class="text-warning">Especialidad:</label
+              ><br />
+              <input
+                required
+                [(ngModel)]="costInputData"
+                ngModel
+                #costo="ngModel"
+                type="number"
+                name="costo"
+                id="costo"
+                class="form-control border-warning bg-transparent text-light "
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="costo.touched && !costo.valid"
+              >
+                <div *ngIf="costo.errors?.required">
+                  Debe ingresar el costo del anuncio.
+                </div>
+              </div>
+            </div>
+            <!--            cedula-->
+            <div class="form-group">
+              <label for="descripcionlabel" class="text-warning"
+                >Descripción:</label
+              ><br />
+              <input
+                required
+                [(ngModel)]="descripcionInputData"
+                #descripcion="ngModel"
+                type="text"
+                name="descripcionlabel"
+                id="descripcionlabel"
+                class="form-control border-warning bg-transparent text-light"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="descripcion.touched && !descripcion.valid"
+              >
+                <div *ngIf="descripcion.errors?.required">
+                  Debe ingresar una descripción.
+                </div>
+              </div>
+            </div>
+            <!--            numero de telefono-->
+            <div class="form-group">
+              <label for="costo" class="text-warning">Costo en colones:</label
+              ><br />
+              <input
+                required
+                [(ngModel)]="costInputData"
+                ngModel
+                #costo="ngModel"
+                type="number"
+                name="costo"
+                id="costo"
+                class="form-control border-warning bg-transparent text-light "
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="costo.touched && !costo.valid"
+              >
+                <div *ngIf="costo.errors?.required">
+                  Debe ingresar el costo del anuncio.
+                </div>
+              </div>
+            </div>
+            <!--            Boton-->
+            <div class="form-group">
+              <button
+                type="button"
+                (click)="newAd()"
+                class="btn btn-outline-warning btn-md text-center"
+                [disabled]="!(name.valid && descripcion.valid && costo.valid)"
+                data-dismiss="modal"
+              >
+                Registrar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

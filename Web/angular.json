@@ -122,5 +122,8 @@
       }
     }
   },
-  "defaultProject": "Web"
+  "defaultProject": "Web",
+  "cli": {
+    "defaultCollection": "@ngx-formly/schematics"
+  }
 }
