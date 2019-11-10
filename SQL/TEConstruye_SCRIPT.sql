@@ -1,0 +1,58 @@
+/*SE EJECUTA PRIMERO*/
+CREATE DATABASE teconstruye
+/*CREAR UN QUERY DESDE LA BASE DE DATOS ANTES CREADA*/
+CREATE TABLE EMPLEADO(
+	Cedula INT PRIMARY KEY NOT NULL,
+	Nombre VARCHAR(30) NOT NULL,
+	Telefono INT NOT NULL,
+	HorasProyecto INT,
+	PagoHora INT);
+CREATE TABLE PROYECTO(
+	Nombre VARCHAR(50) PRIMARY KEY NOT NULL,
+	Proveedor VARCHAR(50),
+	Materiales VARCHAR(50)/*CREO que esta deberia obtenerse por un select y no como atributo*/
+	);
+CREATE TABLE FACTURA(
+	Numero INT PRIMARY KEY NOT NULL,
+	FotoFactura VARCHAR(100)
+	);
+CREATE TABLE INGENIERO(
+	Cedula INT PRIMARY KEY NOT NULL,
+	Telefono INT NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	Codigo INT NOT NULL
+);
+CREATE TABLE ESPECIALIDAD(
+	Nombre VARCHAR(50) PRIMARY KEY NOT NULL
+);
+CREATE TABLE OBRA(
+	Nombre VARCHAR(50) PRIMARY KEY NOT NULL,
+	Ubicacion VARCHAR(50) NOT NULL,
+	MetCuadLote INT NOT NULL,
+	MetCuadConst INT NOT NULL,
+	Pisos INT NOT NULL,
+	Baños INT,
+	CantHabit INT,
+	Materiales VARCHAR(50)/*CREO que esta deberia obtenerse por un select y no como atributo*/
+);
+CREATE TABLE ETAPA(
+	Nombre VARCHAR(50) PRIMARY KEY NOT NULL,
+	Descripcion VARCHAR(500) NOT NULL,
+	Presupuesto INT NOT NULL,
+	FechaInicio DATE NOT NULL,
+	FechaFin DATE NOT NULL,
+	Costo INT
+);
+CREATE TABLE MATERIAL(
+	Codigo INT PRIMARY KEY NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	Proveedor VARCHAR(50) NOT NULL,
+	PrecioUnitario INT NOT NULL
+);
+
+CREATE TABLE CLIENTE(
+	Cedula INT PRIMARY KEY NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	Telefono INT NOT NULL
+);
+
