@@ -29,6 +29,10 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
+import { DashboardEngineerComponent } from './Engineer/dashboard-engineer/dashboard-engineer.component';
+import { ObrasComponent } from './Engineer/obras/obras.component';
+import { MaterialesPorEtapaComponent } from './Engineer/materiales-por-etapa/materiales-por-etapa.component';
+import { EtapasPorProyectoComponent } from './Engineer/etapas-por-proyecto/etapas-por-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
     ExpensesComponent,
     DashboardComponent,
     EtapasComponent,
-    RPresupuestoComponent
+    RPresupuestoComponent,
+    DashboardEngineerComponent,
+    ObrasComponent,
+    MaterialesPorEtapaComponent,
+    EtapasPorProyectoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,79 @@
+<div class="view">
+    <img src="/assets/img/cityBanner.jpg" class="img-fluid" alt="placeholder" />
+    <div class="mask flex-center waves-effect waves-light rgba-teal-strong"></div>
+  </div>
+  
+  <h1 class="text-center text-primary py-5 px-2">Vista de Ingenieros y Arquitectos</h1>
+  
+  <div class="container-fluid py-5 px-5">
+    <div class="card-columns">
+      <div class="card border-warning" routerLink="/engineer/obras">
+        <img class="card-img-top" src="..." alt="Card image cap" />
+        <div class="card-body text-center">
+          <h4 class="card-title text-warning font-weight-bold">
+            Registro de Obras
+          </h4>
+          <p class="card-text text-light">
+            El sistema guardará el nombre de la obra, la ubicación, cantidad de habitaciones,
+            baños, pisos, metros cuadrados de construcción y de lote. Además, se deben asociar los ingenieros o
+            arquitectos con un cliente.
+          </p>
+          <a class="btn btn-outline-warning" routerLink="/engineer/obras">Registrar</a>
+        </div>
+      </div>
+
+      <div class="card border-primary" routerLink="/etapas">
+        <img class="card-img-top" src="..." alt="Card image cap" />
+        <div class="card-body text-center">
+          <h4 class="card-title text-primary ">Registro de Etapas</h4>
+          <p class="card-text text-light ">
+            El sistema almacenará una descripción general y un nombre.
+          </p>
+          <a class="btn btn-outline-primary" routerLink="/etapas">Registrar</a>
+        </div>
+      </div>
+
+      <div class="card border-warning" routerLink="/presupuesto">
+        <img class="card-img-top" src="..." alt="Card image cap" />
+        <div class="card-body text-center">
+          <h4 class="card-title text-warning font-weight-bold">
+            Generación de presupuesto
+          </h4>
+          <p class="card-text text-light">
+            Por cada una de las etapas la aplicación deberá generar un total en
+            colones y finalmente sumará todas las etapas dando el presupuesto
+            final.
+          </p>
+          <a class="btn btn-outline-warning" routerLink="/presupuesto">Generar</a>
+        </div>
+      </div>
+
+      <div class="card border-info" routerLink="/engineer/materialesPorEtapa">
+        <img class="card-img-top" src="..." alt="Card image cap" />
+        <div class="card-body text-center">
+          <h4 class="card-title text-info font-weight-bold ">
+            Asignación de materiales y cantidades a cada etapa
+          </h4>
+          <p class="card-text text-light ">
+            Por cada etapa del proyecto se asigna una cantidad de materiales respectivos.
+          </p>
+          <a class="btn btn-outline-info" routerLink="/engineer/materialesPorEtapa">Asignar</a>
+        </div>
+      </div>
+
+      <div class="card border-danger" routerLink="/engineer/etapasPorProyecto">
+        <img class="card-img-top" src="..." alt="Card image cap" />
+        <div class="card-body text-center">
+          <h4 class="card-title text-danger ">
+            Asignación de etapas a un proyecto
+          </h4>
+          <p class="card-text text-light ">
+            El sistema provee la asociación de etapas
+            a un proyecto con sus respectivas fechas de inicio y fin.
+          </p>
+          <a class="btn btn-outline-danger" routerLink="/engineer/etapasPorProyecto">Asignar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  

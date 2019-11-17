@@ -13,6 +13,11 @@ import { EstadoComponent } from './Reports/estado/estado.component';
 import { GastosComponent } from './Reports/gastos/gastos.component';
 import { PlanillaComponent } from './Reports/planilla/planilla.component';
 import { RPresupuestoComponent } from './Reports/r-presupuesto/r-presupuesto.component';
+import {DashboardEngineerComponent} from './Engineer/dashboard-engineer/dashboard-engineer.component';
+import {ObrasComponent} from './Engineer/obras/obras.component';
+import {MaterialesPorEtapaComponent} from './Engineer/materiales-por-etapa/materiales-por-etapa.component';
+import {EtapasPorProyectoComponent} from './Engineer/etapas-por-proyecto/etapas-por-proyecto.component';
+
 
 const routes: Routes = [
   // Admin
@@ -23,6 +28,11 @@ const routes: Routes = [
   { path: 'hours', component: HoursComponent },
   { path: 'ing', component: IngComponent },
   { path: 'material', component: MaterialComponent },
+  //Engineer
+  {path: 'engineer', component: DashboardEngineerComponent},
+  {path: 'engineer/obras', component: ObrasComponent},
+  {path: 'engineer/materialesPorEtapa', component: MaterialesPorEtapaComponent},
+  {path: 'engineer/etapasPorProyecto', component: EtapasPorProyectoComponent},
   // SHARED
   { path: 'etapas', component: EtapasComponent },
   { path: 'presupuesto', component: PresupuestoComponent },
