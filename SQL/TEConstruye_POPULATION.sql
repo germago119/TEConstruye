@@ -60,8 +60,8 @@ VALUES('Trabajo Preliminar','Planeacion del trabajo'),
 ('Pintura','Pintado de la estructura'),
 ('Escaleras','Colocacion de escaleras/gradas');
 
-INSERT INTO etapa(nombre,presupuesto,fechainicio,fechafin,costo,codigo_material)
-VALUES('Trabajo Preliminar',10000,'2019-11-18','2019-11-20',4000,213);
+INSERT INTO etapa(codigo,nombre,presupuesto,fechainicio,fechafin,costo,codigo_material)
+VALUES(1,'Trabajo Preliminar',10000,'2019-11-18','2019-11-20',4000,213);
 
-INSERT INTO etapa_obra(nombre_etapa,nombre_obra)
-VALUES('Trabajo Preliminar','Cafeteria Familiar');
+INSERT INTO etapa_obra(codigo_etapa,nombre_obra)
+VALUES(1,'Cafeteria Familiar');
