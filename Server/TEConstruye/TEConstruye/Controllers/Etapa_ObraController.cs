@@ -12,44 +12,44 @@ using DBContext;
 
 namespace TEConstruye.Controllers
 {
-    public class EtapaController : ApiController
+    public class Etapa_ObraController : ApiController
     {
         private teconstruyeEntities db = new teconstruyeEntities();
 
-        // GET: api/Etapa
-        public IQueryable<etapa> Getetapa()
+        // GET: api/Etapa_Obra
+        public IQueryable<etapa_obra> Getetapa_obra()
         {
-            return db.etapa;
+            return db.etapa_obra;
         }
 
-        // GET: api/Etapa/5
-        [ResponseType(typeof(etapa))]
-        public IHttpActionResult Getetapa(int id)
+        // GET: api/Etapa_Obra/5
+        [ResponseType(typeof(etapa_obra))]
+        public IHttpActionResult Getetapa_obra(short id)
         {
-            etapa etapa = db.etapa.Find(id);
-            if (etapa == null)
+            etapa_obra etapa_obra = db.etapa_obra.Find(id);
+            if (etapa_obra == null)
             {
                 return NotFound();
             }
 
-            return Ok(etapa);
+            return Ok(etapa_obra);
         }
 
-        // PUT: api/Etapa/5
+        // PUT: api/Etapa_Obra/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult Putetapa(int id, etapa etapa)
+        public IHttpActionResult Putetapa_obra(short id, etapa_obra etapa_obra)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != etapa.codigo)
+            if (id != etapa_obra.id_etaobr)
             {
                 return BadRequest();
             }
 
-            db.Entry(etapa).State = EntityState.Modified;
+            db.Entry(etapa_obra).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace TEConstruye.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!etapaExists(id))
+                if (!etapa_obraExists(id))
                 {
                     return NotFound();
                 }
@@ -70,50 +70,35 @@ namespace TEConstruye.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Etapa
-        [ResponseType(typeof(etapa))]
-        public IHttpActionResult Postetapa(etapa etapa)
+        // POST: api/Etapa_Obra
+        [ResponseType(typeof(etapa_obra))]
+        public IHttpActionResult Postetapa_obra(etapa_obra etapa_obra)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.etapa.Add(etapa);
+            db.etapa_obra.Add(etapa_obra);
+            db.SaveChanges();
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (etapaExists(etapa.codigo))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = etapa.codigo }, etapa);
+            return CreatedAtRoute("DefaultApi", new { id = etapa_obra.id_etaobr }, etapa_obra);
         }
 
-        // DELETE: api/Etapa/5
-        [ResponseType(typeof(etapa))]
-        public IHttpActionResult Deleteetapa(int id)
+        // DELETE: api/Etapa_Obra/5
+        [ResponseType(typeof(etapa_obra))]
+        public IHttpActionResult Deleteetapa_obra(short id)
         {
-            etapa etapa = db.etapa.Find(id);
-            if (etapa == null)
+            etapa_obra etapa_obra = db.etapa_obra.Find(id);
+            if (etapa_obra == null)
             {
                 return NotFound();
             }
 
-            db.etapa.Remove(etapa);
+            db.etapa_obra.Remove(etapa_obra);
             db.SaveChanges();
 
-            return Ok(etapa);
+            return Ok(etapa_obra);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +110,9 @@ namespace TEConstruye.Controllers
             base.Dispose(disposing);
         }
 
-        private bool etapaExists(int id)
+        private bool etapa_obraExists(short id)
         {
-            return db.etapa.Count(e => e.codigo == id) > 0;
+            return db.etapa_obra.Count(e => e.id_etaobr == id) > 0;
         }
     }
 }

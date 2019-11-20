@@ -201,8 +201,11 @@
     <Compile Include="Controllers\EmpleadoController.cs" />
     <Compile Include="Controllers\EspecialidadController.cs" />
     <Compile Include="Controllers\EtapaController.cs" />
+    <Compile Include="Controllers\Etapa_DefaultController.cs" />
+    <Compile Include="Controllers\Etapa_ObraController.cs" />
     <Compile Include="Controllers\FacturaController.cs" />
     <Compile Include="Controllers\IngenieroController.cs" />
+    <Compile Include="Controllers\Ingeniero_EspecialidadController.cs" />
     <Compile Include="Controllers\MaterialController.cs" />
     <Compile Include="Controllers\ObraController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -300,7 +303,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBContext\DBContext.csproj">
-      <Project>{d72973c7-bfbb-4cda-a073-37503300cf9d}</Project>
+      <Project>{12653ee0-67bb-4da9-b536-6bcfc0703135}</Project>
       <Name>DBContext</Name>
     </ProjectReference>
   </ItemGroup>

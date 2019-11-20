@@ -17,17 +17,18 @@ namespace DBContext
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ingeniero()
         {
-            this.especialidad = new HashSet<especialidad>();
+            this.ingeniero_especialidad = new HashSet<ingeniero_especialidad>();
         }
     
         public int cedula { get; set; }
         public int telefono { get; set; }
         public string nombre { get; set; }
+        public string apellido { get; set; }
         public int codigo { get; set; }
         public string nombre_proyecto { get; set; }
     
         public virtual proyecto proyecto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<especialidad> especialidad { get; set; }
+        public virtual ICollection<ingeniero_especialidad> ingeniero_especialidad { get; set; }
     }
 }

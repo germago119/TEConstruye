@@ -29,8 +29,11 @@ namespace DBContext
         public virtual DbSet<empleado> empleado { get; set; }
         public virtual DbSet<especialidad> especialidad { get; set; }
         public virtual DbSet<etapa> etapa { get; set; }
+        public virtual DbSet<etapa_default> etapa_default { get; set; }
+        public virtual DbSet<etapa_obra> etapa_obra { get; set; }
         public virtual DbSet<factura> factura { get; set; }
         public virtual DbSet<ingeniero> ingeniero { get; set; }
+        public virtual DbSet<ingeniero_especialidad> ingeniero_especialidad { get; set; }
         public virtual DbSet<material> material { get; set; }
         public virtual DbSet<obra> obra { get; set; }
         public virtual DbSet<proyecto> proyecto { get; set; }

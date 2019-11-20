@@ -12,11 +12,13 @@ namespace DBContext
     using System;
     using System.Collections.Generic;
     
-    public partial class cliente
+    public partial class etapa_obra
     {
-        public int cedula { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public int telefono { get; set; }
+        public int codigo_etapa { get; set; }
+        public string nombre_obra { get; set; }
+        public short id_etaobr { get; set; }
+    
+        public virtual etapa etapa { get; set; }
+        public virtual obra obra { get; set; }
     }
 }

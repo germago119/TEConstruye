@@ -16,6 +16,7 @@ namespace DBContext
     {
         public int cedula { get; set; }
         public string nombre { get; set; }
+        public string apellido { get; set; }
         public int telefono { get; set; }
         public Nullable<int> horasproyecto { get; set; }
         public Nullable<int> pagohora { get; set; }

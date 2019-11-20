@@ -72,13 +72,15 @@ CREATE TABLE CLIENTE(
 CREATE TABLE INGENIERO_ESPECIALIDAD(
 	Cedula_Ingeniero INT NOT NULL,
 	Nombre_Especialidad VARCHAR(50) NOT NULL,
-	PRIMARY KEY(Cedula_Ingeniero,Nombre_Especialidad)
+	ID_INGESP SMALLSERIAL PRIMARY KEY NOT NULL
+	--PRIMARY KEY(Cedula_Ingeniero,Nombre_Especialidad)
 );
 
 CREATE TABLE ETAPA_OBRA(
 	Codigo_Etapa INT NOT NULL,
 	Nombre_Obra VARCHAR(50) NOT NULL,
-	PRIMARY KEY(Codigo_Etapa,Nombre_Obra)
+	ID_ETAOBR SMALLSERIAL PRIMARY KEY NOT NULL
+	--PRIMARY KEY(Codigo_Etapa,Nombre_Obra)
 );
 
 

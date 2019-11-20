@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D72973C7-BFBB-4CDA-A073-37503300CF9D}</ProjectGuid>
+    <ProjectGuid>{12653EE0-67BB-4DA9-B536-6BCFC0703135}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DBContext</RootNamespace>
@@ -101,10 +101,19 @@
     <Compile Include="etapa.cs">
       <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="etapa_default.cs">
+      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="etapa_obra.cs">
+      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="factura.cs">
       <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ingeniero.cs">
+      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ingeniero_especialidad.cs">
       <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="material.cs">

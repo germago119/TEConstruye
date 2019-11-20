@@ -17,7 +17,7 @@ namespace DBContext
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public obra()
         {
-            this.etapa = new HashSet<etapa>();
+            this.etapa_obra = new HashSet<etapa_obra>();
         }
     
         public string nombre { get; set; }
@@ -29,8 +29,8 @@ namespace DBContext
         public Nullable<int> canthabit { get; set; }
         public string nombre_proyecto { get; set; }
     
-        public virtual proyecto proyecto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<etapa> etapa { get; set; }
+        public virtual ICollection<etapa_obra> etapa_obra { get; set; }
+        public virtual proyecto proyecto { get; set; }
     }
 }
