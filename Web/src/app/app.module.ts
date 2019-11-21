@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +32,6 @@ import { DashboardEngineerComponent } from './Engineer/dashboard-engineer/dashbo
 import { ObrasComponent } from './Engineer/obras/obras.component';
 import { MaterialesPorEtapaComponent } from './Engineer/materiales-por-etapa/materiales-por-etapa.component';
 import { EtapasPorProyectoComponent } from './Engineer/etapas-por-proyecto/etapas-por-proyecto.component';
-import { UploadExComponent } from './upload-ex/upload-ex.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +42,6 @@ import { UploadExComponent } from './upload-ex/upload-ex.component';
     PresupuestoComponent,
     IngComponent,
     ClientComponent,
-    FileSelectDirective,
-    FileDropDirective,
     EmployeeComponent,
     MaterialComponent,
     HoursComponent,
@@ -56,8 +52,7 @@ import { UploadExComponent } from './upload-ex/upload-ex.component';
     DashboardEngineerComponent,
     ObrasComponent,
     MaterialesPorEtapaComponent,
-    EtapasPorProyectoComponent,
-    UploadExComponent
+    EtapasPorProyectoComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,6 @@ import { DashboardEngineerComponent } from './Engineer/dashboard-engineer/dashbo
 import { ObrasComponent } from './Engineer/obras/obras.component';
 import { MaterialesPorEtapaComponent } from './Engineer/materiales-por-etapa/materiales-por-etapa.component';
 import { EtapasPorProyectoComponent } from './Engineer/etapas-por-proyecto/etapas-por-proyecto.component';
-import { UploadExComponent } from './upload-ex/upload-ex.component';
 
 const routes: Routes = [
   // Admin
@@ -43,9 +42,8 @@ const routes: Routes = [
   { path: 'restado', component: EstadoComponent },
   { path: 'rgastos', component: GastosComponent },
   { path: 'rplanilla', component: PlanillaComponent },
-  { path: 'rpresupuesto', component: RPresupuestoComponent },
+  { path: 'rpresupuesto', component: RPresupuestoComponent }
   //
-  { path: 'upload', component: UploadExComponent }
 ];
 
 @NgModule({
