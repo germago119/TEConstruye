@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-etapas',
@@ -8,7 +9,6 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./etapas.component.sass']
 })
 export class EtapasComponent implements OnInit {
-
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -26,24 +26,10 @@ export class EtapasComponent implements OnInit {
           class: 'icon ion-ios-clipboard bg-transparent border-primary'
         }
       }
-    },
-    {
-      key: 'descripcion',
-      type: 'textarea',
-      templateOptions: {
-        placeholder: '',
-        label: 'Descripción: ',
-        description: 'Descripción debe ser texto',
-        required: true,
-        addonLeft: {
-          class: 'icon ion-ios-partly-sunny bg-transparent border-primary'
-        }
-      }
     }
   ];
 
-
-  constructor() {}
+  show = false;
 
   ngOnInit() {}
 
@@ -51,5 +37,13 @@ export class EtapasComponent implements OnInit {
     alert(JSON.stringify(this.model));
   }
 
+  showForm() {
+    this.show = !this.show;
+  }
 
+  constructor(private location: Location) {}
+
+  backClicked() {
+    this.location.back();
+  }
 }

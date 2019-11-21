@@ -8,9 +8,8 @@ describe('MaterialesPorEtapaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MaterialesPorEtapaComponent ]
-    })
-    .compileComponents();
+      declarations: [MaterialesPorEtapaComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

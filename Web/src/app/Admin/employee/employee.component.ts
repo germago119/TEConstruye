@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./employee.component.sass']
 })
 export class EmployeeComponent implements OnInit {
+  constructor() {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -22,7 +23,7 @@ export class EmployeeComponent implements OnInit {
         description: 'Nombre debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon lnr lnr-user bg-transparent border-primary'
+          class: 'icon ion-md-contact bg-transparent border-primary'
         }
       }
     },
@@ -96,15 +97,29 @@ export class EmployeeComponent implements OnInit {
         // min: 10000000,
         // max: 99999999,
         addonLeft: {
-          class: 'icon lnr lnr-diamond bg-transparent border-primary'
+          class: 'icon ion-logo-usd bg-transparent border-primary'
         }
       }
     }
   ];
 
-  constructor() {}
+  show = false;
 
   ngOnInit() {}
+
+  showForm() {
+    this.show = !this.show;
+  }
+
+  currency(money: number) {
+    // Create our number formatter.
+    const formatter = new Intl.NumberFormat('es-CR', {
+      style: 'currency',
+      currency: 'CRC'
+    });
+
+    return formatter.format(money); /* $2,500.00 */
+  }
 
   submit() {
     alert(JSON.stringify(this.model));

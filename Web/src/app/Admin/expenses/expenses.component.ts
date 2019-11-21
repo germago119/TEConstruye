@@ -23,7 +23,7 @@ export class ExpensesComponent implements OnInit {
         description: 'Proveedor debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon lnr lnr-users bg-transparent border-primary'
+          class: 'icon ion-ios-contacts bg-transparent border-primary'
         }
       }
     },
@@ -37,7 +37,7 @@ export class ExpensesComponent implements OnInit {
         description: 'Numero de Factura debe ser un numero PLZ',
         required: true,
         addonLeft: {
-          class: 'icon lnr lnr-license bg-transparent border-primary'
+          class: 'icon ion-ios-pricetag bg-transparent border-primary'
         }
       }
     },
@@ -51,11 +51,17 @@ export class ExpensesComponent implements OnInit {
         labelProp: 'name',
         required: true,
         addonLeft: {
-          class: 'icon lnr lnr-cart bg-transparent border-primary'
+          class: 'icon ion-ios-cart bg-transparent border-primary'
         }
       }
     }
   ];
+
+  show = false;
+
+  showForm() {
+    this.show = !this.show;
+  }
 
   submit() {
     alert(JSON.stringify(this.model));

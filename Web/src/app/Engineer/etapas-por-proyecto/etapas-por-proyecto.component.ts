@@ -8,7 +8,6 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./etapas-por-proyecto.component.sass']
 })
 export class EtapasPorProyectoComponent implements OnInit {
-
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -44,13 +43,11 @@ export class EtapasPorProyectoComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   submit() {
     alert(JSON.stringify(this.model));
   }
-
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-presupuesto',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./presupuesto.component.sass']
 })
 export class PresupuestoComponent implements OnInit {
-  constructor() {}
-
   ngOnInit() {}
+
+  constructor(private location: Location) {}
+
+  backClicked() {
+    this.location.back();
+  }
 }

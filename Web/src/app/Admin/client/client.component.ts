@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./client.component.sass']
 })
 export class ClientComponent implements OnInit {
+  constructor() {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -86,9 +87,13 @@ export class ClientComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  show = false;
 
   ngOnInit() {}
+
+  showForm() {
+    this.show = !this.show;
+  }
 
   submit() {
     alert(JSON.stringify(this.model));

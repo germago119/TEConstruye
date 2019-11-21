@@ -1,23 +1,22 @@
 <div class="container d-flex flex-column align-items-center">
-    <h1 class="text-center text-primary py-5">Registro de Obras</h1>
-  
-    <div class="d-flex justify-content-center my-2">
-      <form [formGroup]="form" (ngSubmit)="submit()">
-        <formly-form
-          [model]="model"
-          [fields]="fields"
-          [options]="options"
-          [form]="form"
-        ></formly-form>
-        <button
-          type="submit"
-          class="btn btn-outline-primary submit-button"
-          [disabled]="!form.valid"
-        >
-          Registrar
-        </button>
-      </form>
-    </div>
-    <a class="btn btn-outline-light my-5" routerLink="/engineer">CANCELAR</a>
+  <h1 class="text-center text-primary py-5">Registro de Obras</h1>
+
+  <div class="d-flex justify-content-center my-2">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <formly-form
+        [model]="model"
+        [fields]="fields"
+        [options]="options"
+        [form]="form"
+      ></formly-form>
+      <button
+        type="submit"
+        class="btn btn-outline-primary submit-button"
+        [disabled]="!form.valid"
+      >
+        Registrar
+      </button>
+    </form>
   </div>
-  
+  <a class="btn btn-outline-light my-5" routerLink="/engineer">CANCELAR</a>
+</div>

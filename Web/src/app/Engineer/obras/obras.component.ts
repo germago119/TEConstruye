@@ -8,7 +8,6 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./obras.component.sass']
 })
 export class ObrasComponent implements OnInit {
-
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -131,13 +130,11 @@ export class ObrasComponent implements OnInit {
     }
   ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   submit() {
     alert(JSON.stringify(this.model));
   }
-
 }

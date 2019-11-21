@@ -8,6 +8,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./material.component.sass']
 })
 export class MaterialComponent implements OnInit {
+  constructor() {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -22,7 +23,7 @@ export class MaterialComponent implements OnInit {
         description: 'Nombre debe ser texto',
         required: true,
         addonLeft: {
-          class: 'icon lnr lnr-user bg-transparent border-primary'
+          class: 'icon ion-ios-contact bg-transparent border-primary'
         }
       }
     },
@@ -55,11 +56,25 @@ export class MaterialComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  show = false;
 
   ngOnInit() {}
 
+  showForm() {
+    this.show = !this.show;
+  }
+
   submit() {
     alert(JSON.stringify(this.model));
+  }
+
+  currency(money: number) {
+    // Create our number formatter.
+    const formatter = new Intl.NumberFormat('es-CR', {
+      style: 'currency',
+      currency: 'CRC'
+    });
+
+    return formatter.format(money); /* $2,500.00 */
   }
 }

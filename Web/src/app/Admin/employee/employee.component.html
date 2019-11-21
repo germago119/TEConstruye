@@ -1,7 +1,7 @@
 <div class="container d-flex flex-column align-items-center">
   <h1 class="text-center text-primary py-5">Registro de Empleados</h1>
 
-  <div class="d-flex justify-content-center my-2">
+  <div *ngIf="show" class="d-flex justify-content-center my-2">
     <form [formGroup]="form" (ngSubmit)="submit()">
       <formly-form
         [model]="model"
@@ -18,5 +18,58 @@
       </button>
     </form>
   </div>
+
+  <div class="container mt-3">
+    <!-- Ecabezado de tabla -->
+    <div class="row">
+      <div class="col-md-12">
+        <nav class="navbar navbar-dark bg-transparent">
+          <a class="navbar-brand text-light">Tabla de empleados</a>
+          <form class="form-inline">
+            <button type="button" (click)="showForm()" class="btn">
+              <em
+                class="icon ion-ios-add-circle-outline"
+                style="font-size: 2em;"
+              ></em>
+            </button>
+          </form>
+        </nav>
+      </div>
+    </div>
+    <!-- Tabla -->
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Cédula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Pago</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of model">
+              <th scope="row" class="align-middle">{{ data.cedula }}</th>
+              <th scope="row" class="align-middle">
+                {{
+                  data.nombre +
+                    ' ' +
+                    data.primerapellido +
+                    ' ' +
+                    data.segundoapellido
+                }}
+              </th>
+              <th scope="row" class="align-middle">{{ data.telefono }}</th>
+              <th scope="row" class="align-middle">
+                {{ currency(data.pago) }}
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <a class="btn btn-outline-light my-5" routerLink="/admin">CANCELAR</a>
 </div>

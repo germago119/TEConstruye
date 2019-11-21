@@ -117,6 +117,12 @@ export class IngComponent implements OnInit {
     }
   ];
 
+  show = false;
+
+  showForm() {
+    this.show = !this.show;
+  }
+
   submit() {
     alert(JSON.stringify(this.model));
   }
