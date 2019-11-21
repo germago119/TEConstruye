@@ -1,0 +1,752 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="teconstruyeModel.Store" Provider="Npgsql" ProviderManifestToken="10.10" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="int4" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="int4" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono" Type="int4" Nullable="false" />
+          <Property Name="horasproyecto" Type="int4" />
+          <Property Name="pagohora" Type="int4" />
+          <Property Name="nombre_proyecto" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="especialidad">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etapa">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int4" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="presupuesto" Type="int4" Nullable="false" />
+          <Property Name="fechainicio" Type="date" Nullable="false" />
+          <Property Name="fechafin" Type="date" Nullable="false" />
+          <Property Name="costo" Type="int4" />
+          <Property Name="codigo_material" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etapa_default">
+          <Key>
+            <PropertyRef Name="nombreetapa" />
+          </Key>
+          <Property Name="nombreetapa" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="etapa_obra">
+          <Key>
+            <PropertyRef Name="id_etaobr" />
+          </Key>
+          <Property Name="codigo_etapa" Type="int4" Nullable="false" />
+          <Property Name="nombre_obra" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_etaobr" Type="int2" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="int4" Nullable="false" />
+          <Property Name="fotofactura" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ingeniero">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="int4" Nullable="false" />
+          <Property Name="telefono" Type="int4" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo" Type="int4" Nullable="false" />
+          <Property Name="nombre_proyecto" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ingeniero_especialidad">
+          <Key>
+            <PropertyRef Name="id_ingesp" />
+          </Key>
+          <Property Name="cedula_ingeniero" Type="int4" Nullable="false" />
+          <Property Name="nombre_especialidad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_ingesp" Type="int2" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int4" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="proveedor" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="preciounitario" Type="int4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="obra">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ubicacion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="metcuadlote" Type="int4" Nullable="false" />
+          <Property Name="metcuadconst" Type="int4" Nullable="false" />
+          <Property Name="pisos" Type="int4" Nullable="false" />
+          <Property Name="baños" Type="int4" />
+          <Property Name="canthabit" Type="int4" />
+          <Property Name="nombre_proyecto" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proyecto">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="proveedor" Type="varchar" MaxLength="50" />
+          <Property Name="numero_factura" Type="int4" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_empleado_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapa_etapa_default">
+          <End Role="etapa_default" Type="Self.etapa_default" Multiplicity="1" />
+          <End Role="etapa" Type="Self.etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_default">
+              <PropertyRef Name="nombreetapa" />
+            </Principal>
+            <Dependent Role="etapa">
+              <PropertyRef Name="nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapa_material">
+          <End Role="material" Type="Self.material" Multiplicity="1" />
+          <End Role="etapa" Type="Self.etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="material">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="etapa">
+              <PropertyRef Name="codigo_material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapaobra_etapa">
+          <End Role="etapa" Type="Self.etapa" Multiplicity="1" />
+          <End Role="etapa_obra" Type="Self.etapa_obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="etapa_obra">
+              <PropertyRef Name="codigo_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapaobra_obra">
+          <End Role="obra" Type="Self.obra" Multiplicity="1" />
+          <End Role="etapa_obra" Type="Self.etapa_obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obra">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="etapa_obra">
+              <PropertyRef Name="nombre_obra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingeniero_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="ingeniero" Type="Self.ingeniero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="ingeniero">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingenieroespecialidad_especialidad">
+          <End Role="especialidad" Type="Self.especialidad" Multiplicity="1" />
+          <End Role="ingeniero_especialidad" Type="Self.ingeniero_especialidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="especialidad">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="ingeniero_especialidad">
+              <PropertyRef Name="nombre_especialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingenieroespecialidad_ingeniero">
+          <End Role="ingeniero" Type="Self.ingeniero" Multiplicity="1" />
+          <End Role="ingeniero_especialidad" Type="Self.ingeniero_especialidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingeniero">
+              <PropertyRef Name="cedula" />
+            </Principal>
+            <Dependent Role="ingeniero_especialidad">
+              <PropertyRef Name="cedula_ingeniero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_obra_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="obra" Type="Self.obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="obra">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="1" />
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="numero" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="numero_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        
+        <EntityContainer Name="teconstruyeModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="public" store:Type="Tables" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" Schema="public" store:Type="Tables" />
+          <EntitySet Name="especialidad" EntityType="Self.especialidad" Schema="public" store:Type="Tables" />
+          <EntitySet Name="etapa" EntityType="Self.etapa" Schema="public" store:Type="Tables" />
+          <EntitySet Name="etapa_default" EntityType="Self.etapa_default" Schema="public" store:Type="Tables" />
+          <EntitySet Name="etapa_obra" EntityType="Self.etapa_obra" Schema="public" store:Type="Tables" />
+          <EntitySet Name="factura" EntityType="Self.factura" Schema="public" store:Type="Tables" />
+          <EntitySet Name="ingeniero" EntityType="Self.ingeniero" Schema="public" store:Type="Tables" />
+          <EntitySet Name="ingeniero_especialidad" EntityType="Self.ingeniero_especialidad" Schema="public" store:Type="Tables" />
+          <EntitySet Name="material" EntityType="Self.material" Schema="public" store:Type="Tables" />
+          <EntitySet Name="obra" EntityType="Self.obra" Schema="public" store:Type="Tables" />
+          <EntitySet Name="proyecto" EntityType="Self.proyecto" Schema="public" store:Type="Tables" />
+          <AssociationSet Name="fk_empleado_proyecto" Association="Self.fk_empleado_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapa_etapa_default" Association="Self.fk_etapa_etapa_default">
+            <End Role="etapa_default" EntitySet="etapa_default" />
+            <End Role="etapa" EntitySet="etapa" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapa_material" Association="Self.fk_etapa_material">
+            <End Role="material" EntitySet="material" />
+            <End Role="etapa" EntitySet="etapa" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapaobra_etapa" Association="Self.fk_etapaobra_etapa">
+            <End Role="etapa" EntitySet="etapa" />
+            <End Role="etapa_obra" EntitySet="etapa_obra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapaobra_obra" Association="Self.fk_etapaobra_obra">
+            <End Role="obra" EntitySet="obra" />
+            <End Role="etapa_obra" EntitySet="etapa_obra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingeniero_proyecto" Association="Self.fk_ingeniero_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="ingeniero" EntitySet="ingeniero" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingenieroespecialidad_especialidad" Association="Self.fk_ingenieroespecialidad_especialidad">
+            <End Role="especialidad" EntitySet="especialidad" />
+            <End Role="ingeniero_especialidad" EntitySet="ingeniero_especialidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingenieroespecialidad_ingeniero" Association="Self.fk_ingenieroespecialidad_ingeniero">
+            <End Role="ingeniero" EntitySet="ingeniero" />
+            <End Role="ingeniero_especialidad" EntitySet="ingeniero_especialidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_obra_proyecto" Association="Self.fk_obra_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="obra" EntitySet="obra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_factura" Association="Self.fk_proyecto_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="teconstruyeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="empleado">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="horasproyecto" Type="Int32" />
+          <Property Name="pagohora" Type="Int32" />
+          <Property Name="nombre_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_empleado_proyecto" FromRole="empleado" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="especialidad">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ingeniero_especialidad" Relationship="Self.fk_ingenieroespecialidad_especialidad" FromRole="especialidad" ToRole="ingeniero_especialidad" />
+        </EntityType>
+        <EntityType Name="etapa">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="presupuesto" Type="Int32" Nullable="false" />
+          <Property Name="fechainicio" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="fechafin" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="costo" Type="Int32" />
+          <Property Name="codigo_material" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="etapa_default" Relationship="Self.fk_etapa_etapa_default" FromRole="etapa" ToRole="etapa_default" />
+          <NavigationProperty Name="material" Relationship="Self.fk_etapa_material" FromRole="etapa" ToRole="material" />
+          <NavigationProperty Name="etapa_obra" Relationship="Self.fk_etapaobra_etapa" FromRole="etapa" ToRole="etapa_obra" />
+        </EntityType>
+        <EntityType Name="etapa_default">
+          <Key>
+            <PropertyRef Name="nombreetapa" />
+          </Key>
+          <Property Name="nombreetapa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="etapa" Relationship="Self.fk_etapa_etapa_default" FromRole="etapa_default" ToRole="etapa" />
+        </EntityType>
+        <EntityType Name="etapa_obra">
+          <Key>
+            <PropertyRef Name="id_etaobr" />
+          </Key>
+          <Property Name="codigo_etapa" Type="Int32" Nullable="false" />
+          <Property Name="nombre_obra" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_etaobr" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="etapa" Relationship="Self.fk_etapaobra_etapa" FromRole="etapa_obra" ToRole="etapa" />
+          <NavigationProperty Name="obra" Relationship="Self.fk_etapaobra_obra" FromRole="etapa_obra" ToRole="obra" />
+        </EntityType>
+        <EntityType Name="factura">
+          <Key>
+            <PropertyRef Name="numero" />
+          </Key>
+          <Property Name="numero" Type="Int32" Nullable="false" />
+          <Property Name="fotofactura" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_proyecto_factura" FromRole="factura" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="ingeniero">
+          <Key>
+            <PropertyRef Name="cedula" />
+          </Key>
+          <Property Name="cedula" Type="Int32" Nullable="false" />
+          <Property Name="telefono" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_ingeniero_proyecto" FromRole="ingeniero" ToRole="proyecto" />
+          <NavigationProperty Name="ingeniero_especialidad" Relationship="Self.fk_ingenieroespecialidad_ingeniero" FromRole="ingeniero" ToRole="ingeniero_especialidad" />
+        </EntityType>
+        <EntityType Name="ingeniero_especialidad">
+          <Key>
+            <PropertyRef Name="id_ingesp" />
+          </Key>
+          <Property Name="cedula_ingeniero" Type="Int32" Nullable="false" />
+          <Property Name="nombre_especialidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_ingesp" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="especialidad" Relationship="Self.fk_ingenieroespecialidad_especialidad" FromRole="ingeniero_especialidad" ToRole="especialidad" />
+          <NavigationProperty Name="ingeniero" Relationship="Self.fk_ingenieroespecialidad_ingeniero" FromRole="ingeniero_especialidad" ToRole="ingeniero" />
+        </EntityType>
+        <EntityType Name="material">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="preciounitario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="etapa" Relationship="Self.fk_etapa_material" FromRole="material" ToRole="etapa" />
+        </EntityType>
+        <EntityType Name="obra">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ubicacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="metcuadlote" Type="Int32" Nullable="false" />
+          <Property Name="metcuadconst" Type="Int32" Nullable="false" />
+          <Property Name="pisos" Type="Int32" Nullable="false" />
+          <Property Name="baños" Type="Int32" />
+          <Property Name="canthabit" Type="Int32" />
+          <Property Name="nombre_proyecto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="etapa_obra" Relationship="Self.fk_etapaobra_obra" FromRole="obra" ToRole="etapa_obra" />
+          <NavigationProperty Name="proyecto" Relationship="Self.fk_obra_proyecto" FromRole="obra" ToRole="proyecto" />
+        </EntityType>
+        <EntityType Name="proyecto">
+          <Key>
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="proveedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numero_factura" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="empleado" Relationship="Self.fk_empleado_proyecto" FromRole="proyecto" ToRole="empleado" />
+          <NavigationProperty Name="factura" Relationship="Self.fk_proyecto_factura" FromRole="proyecto" ToRole="factura" />
+          <NavigationProperty Name="ingeniero" Relationship="Self.fk_ingeniero_proyecto" FromRole="proyecto" ToRole="ingeniero" />
+          <NavigationProperty Name="obra" Relationship="Self.fk_obra_proyecto" FromRole="proyecto" ToRole="obra" />
+        </EntityType>
+        <Association Name="fk_empleado_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="empleado">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingenieroespecialidad_especialidad">
+          <End Role="especialidad" Type="Self.especialidad" Multiplicity="1" />
+          <End Role="ingeniero_especialidad" Type="Self.ingeniero_especialidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="especialidad">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="ingeniero_especialidad">
+              <PropertyRef Name="nombre_especialidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapa_etapa_default">
+          <End Role="etapa_default" Type="Self.etapa_default" Multiplicity="1" />
+          <End Role="etapa" Type="Self.etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa_default">
+              <PropertyRef Name="nombreetapa" />
+            </Principal>
+            <Dependent Role="etapa">
+              <PropertyRef Name="nombre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapa_material">
+          <End Role="material" Type="Self.material" Multiplicity="1" />
+          <End Role="etapa" Type="Self.etapa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="material">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="etapa">
+              <PropertyRef Name="codigo_material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapaobra_etapa">
+          <End Role="etapa" Type="Self.etapa" Multiplicity="1" />
+          <End Role="etapa_obra" Type="Self.etapa_obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="etapa">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="etapa_obra">
+              <PropertyRef Name="codigo_etapa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_etapaobra_obra">
+          <End Role="obra" Type="Self.obra" Multiplicity="1" />
+          <End Role="etapa_obra" Type="Self.etapa_obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obra">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="etapa_obra">
+              <PropertyRef Name="nombre_obra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_proyecto_factura">
+          <End Role="factura" Type="Self.factura" Multiplicity="1" />
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="factura">
+              <PropertyRef Name="numero" />
+            </Principal>
+            <Dependent Role="proyecto">
+              <PropertyRef Name="numero_factura" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingeniero_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="ingeniero" Type="Self.ingeniero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="ingeniero">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ingenieroespecialidad_ingeniero">
+          <End Role="ingeniero" Type="Self.ingeniero" Multiplicity="1" />
+          <End Role="ingeniero_especialidad" Type="Self.ingeniero_especialidad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ingeniero">
+              <PropertyRef Name="cedula" />
+            </Principal>
+            <Dependent Role="ingeniero_especialidad">
+              <PropertyRef Name="cedula_ingeniero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_obra_proyecto">
+          <End Role="proyecto" Type="Self.proyecto" Multiplicity="1" />
+          <End Role="obra" Type="Self.obra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proyecto">
+              <PropertyRef Name="nombre" />
+            </Principal>
+            <Dependent Role="obra">
+              <PropertyRef Name="nombre_proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="teconstruyeEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="empleado" EntityType="Self.empleado" />
+          <EntitySet Name="especialidad" EntityType="Self.especialidad" />
+          <EntitySet Name="etapa" EntityType="Self.etapa" />
+          <EntitySet Name="etapa_default" EntityType="Self.etapa_default" />
+          <EntitySet Name="etapa_obra" EntityType="Self.etapa_obra" />
+          <EntitySet Name="factura" EntityType="Self.factura" />
+          <EntitySet Name="ingeniero" EntityType="Self.ingeniero" />
+          <EntitySet Name="ingeniero_especialidad" EntityType="Self.ingeniero_especialidad" />
+          <EntitySet Name="material" EntityType="Self.material" />
+          <EntitySet Name="obra" EntityType="Self.obra" />
+          <EntitySet Name="proyecto" EntityType="Self.proyecto" />
+          <AssociationSet Name="fk_empleado_proyecto" Association="Self.fk_empleado_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingenieroespecialidad_especialidad" Association="Self.fk_ingenieroespecialidad_especialidad">
+            <End Role="especialidad" EntitySet="especialidad" />
+            <End Role="ingeniero_especialidad" EntitySet="ingeniero_especialidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapa_etapa_default" Association="Self.fk_etapa_etapa_default">
+            <End Role="etapa_default" EntitySet="etapa_default" />
+            <End Role="etapa" EntitySet="etapa" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapa_material" Association="Self.fk_etapa_material">
+            <End Role="material" EntitySet="material" />
+            <End Role="etapa" EntitySet="etapa" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapaobra_etapa" Association="Self.fk_etapaobra_etapa">
+            <End Role="etapa" EntitySet="etapa" />
+            <End Role="etapa_obra" EntitySet="etapa_obra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_etapaobra_obra" Association="Self.fk_etapaobra_obra">
+            <End Role="obra" EntitySet="obra" />
+            <End Role="etapa_obra" EntitySet="etapa_obra" />
+          </AssociationSet>
+          <AssociationSet Name="fk_proyecto_factura" Association="Self.fk_proyecto_factura">
+            <End Role="factura" EntitySet="factura" />
+            <End Role="proyecto" EntitySet="proyecto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingeniero_proyecto" Association="Self.fk_ingeniero_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="ingeniero" EntitySet="ingeniero" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ingenieroespecialidad_ingeniero" Association="Self.fk_ingenieroespecialidad_ingeniero">
+            <End Role="ingeniero" EntitySet="ingeniero" />
+            <End Role="ingeniero_especialidad" EntitySet="ingeniero_especialidad" />
+          </AssociationSet>
+          <AssociationSet Name="fk_obra_proyecto" Association="Self.fk_obra_proyecto">
+            <End Role="proyecto" EntitySet="proyecto" />
+            <End Role="obra" EntitySet="obra" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="teconstruyeModelStoreContainer" CdmEntityContainer="teconstruyeEntities1">
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="teconstruyeModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado">
+            <EntityTypeMapping TypeName="teconstruyeModel.empleado">
+              <MappingFragment StoreEntitySet="empleado">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="horasproyecto" ColumnName="horasproyecto" />
+                <ScalarProperty Name="pagohora" ColumnName="pagohora" />
+                <ScalarProperty Name="nombre_proyecto" ColumnName="nombre_proyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="especialidad">
+            <EntityTypeMapping TypeName="teconstruyeModel.especialidad">
+              <MappingFragment StoreEntitySet="especialidad">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etapa">
+            <EntityTypeMapping TypeName="teconstruyeModel.etapa">
+              <MappingFragment StoreEntitySet="etapa">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="presupuesto" ColumnName="presupuesto" />
+                <ScalarProperty Name="fechainicio" ColumnName="fechainicio" />
+                <ScalarProperty Name="fechafin" ColumnName="fechafin" />
+                <ScalarProperty Name="costo" ColumnName="costo" />
+                <ScalarProperty Name="codigo_material" ColumnName="codigo_material" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etapa_default">
+            <EntityTypeMapping TypeName="teconstruyeModel.etapa_default">
+              <MappingFragment StoreEntitySet="etapa_default">
+                <ScalarProperty Name="nombreetapa" ColumnName="nombreetapa" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="etapa_obra">
+            <EntityTypeMapping TypeName="teconstruyeModel.etapa_obra">
+              <MappingFragment StoreEntitySet="etapa_obra">
+                <ScalarProperty Name="codigo_etapa" ColumnName="codigo_etapa" />
+                <ScalarProperty Name="nombre_obra" ColumnName="nombre_obra" />
+                <ScalarProperty Name="id_etaobr" ColumnName="id_etaobr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="factura">
+            <EntityTypeMapping TypeName="teconstruyeModel.factura">
+              <MappingFragment StoreEntitySet="factura">
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="fotofactura" ColumnName="fotofactura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingeniero">
+            <EntityTypeMapping TypeName="teconstruyeModel.ingeniero">
+              <MappingFragment StoreEntitySet="ingeniero">
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre_proyecto" ColumnName="nombre_proyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ingeniero_especialidad">
+            <EntityTypeMapping TypeName="teconstruyeModel.ingeniero_especialidad">
+              <MappingFragment StoreEntitySet="ingeniero_especialidad">
+                <ScalarProperty Name="cedula_ingeniero" ColumnName="cedula_ingeniero" />
+                <ScalarProperty Name="nombre_especialidad" ColumnName="nombre_especialidad" />
+                <ScalarProperty Name="id_ingesp" ColumnName="id_ingesp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="material">
+            <EntityTypeMapping TypeName="teconstruyeModel.material">
+              <MappingFragment StoreEntitySet="material">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="preciounitario" ColumnName="preciounitario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="obra">
+            <EntityTypeMapping TypeName="teconstruyeModel.obra">
+              <MappingFragment StoreEntitySet="obra">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ubicacion" ColumnName="ubicacion" />
+                <ScalarProperty Name="metcuadlote" ColumnName="metcuadlote" />
+                <ScalarProperty Name="metcuadconst" ColumnName="metcuadconst" />
+                <ScalarProperty Name="pisos" ColumnName="pisos" />
+                <ScalarProperty Name="baños" ColumnName="baños" />
+                <ScalarProperty Name="canthabit" ColumnName="canthabit" />
+                <ScalarProperty Name="nombre_proyecto" ColumnName="nombre_proyecto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proyecto">
+            <EntityTypeMapping TypeName="teconstruyeModel.proyecto">
+              <MappingFragment StoreEntitySet="proyecto">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

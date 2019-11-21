@@ -6,9 +6,10 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Description;
-using DBContext;
+using DB_Context;
 
 namespace TEConstruye.Controllers
 {
@@ -16,6 +17,11 @@ namespace TEConstruye.Controllers
     {
         private teconstruyeEntities db = new teconstruyeEntities();
 
+        public IHttpActionResult Options()
+        {
+            HttpContext.Current.Response.AppendHeader("Allow", "GET,DELETE,PUT,POST,OPTIONS");
+            return Ok();
+        }
         // GET: api/Etapa
         public IQueryable<etapa> Getetapa()
         {
