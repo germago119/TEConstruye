@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Data.Entity;
@@ -18,8 +18,9 @@ namespace DBContext
         public teconstruyeEntities()
             : base("name=teconstruyeEntities")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
@@ -22,6 +22,6 @@ namespace DBContext
         public Nullable<int> pagohora { get; set; }
         public string nombre_proyecto { get; set; }
     
-        public virtual proyecto proyecto { get; set; }
+       public virtual proyecto proyecto { get; set; }
     }
 }

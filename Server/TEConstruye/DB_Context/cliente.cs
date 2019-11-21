@@ -7,22 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class especialidad
+    public partial class cliente
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public especialidad()
-        {
-            this.ingeniero_especialidad = new HashSet<ingeniero_especialidad>();
-        }
-    
+        public int cedula { get; set; }
         public string nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ingeniero_especialidad> ingeniero_especialidad { get; set; }
+        public string apellido { get; set; }
+        public int telefono { get; set; }
     }
 }

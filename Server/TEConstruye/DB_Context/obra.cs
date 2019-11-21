@@ -7,28 +7,32 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ingeniero
+    public partial class obra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ingeniero()
+        public obra()
         {
-            this.ingeniero_especialidad = new HashSet<ingeniero_especialidad>();
+            this.etapa_obra = new HashSet<etapa_obra>();
         }
     
-        public int cedula { get; set; }
-        public int telefono { get; set; }
         public string nombre { get; set; }
-        public string apellido { get; set; }
-        public int codigo { get; set; }
+        public string ubicacion { get; set; }
+        public int metcuadlote { get; set; }
+        public int metcuadconst { get; set; }
+        public int pisos { get; set; }
+        public Nullable<int> baños { get; set; }
+        public Nullable<int> canthabit { get; set; }
         public string nombre_proyecto { get; set; }
     
-        public virtual proyecto proyecto { get; set; }
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ingeniero_especialidad> ingeniero_especialidad { get; set; }
+        public virtual ICollection<etapa_obra> etapa_obra { get; set; }
+        public virtual proyecto proyecto { get; set; }
+        
     }
 }

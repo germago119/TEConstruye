@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{12653EE0-67BB-4DA9-B536-6BCFC0703135}</ProjectGuid>
+    <ProjectGuid>{87F6CE02-FE6C-48B9-9A71-CFA57B7AD411}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DBContext</RootNamespace>
-    <AssemblyName>DBContext</AssemblyName>
+    <RootNamespace>DB_Context</RootNamespace>
+    <AssemblyName>DB_Context</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -90,79 +90,79 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cliente.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="empleado.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="especialidad.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="etapa.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="etapa_default.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="etapa_obra.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="factura.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ingeniero.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="ingeniero_especialidad.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="material.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
     <Compile Include="obra.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="PostgreSQL_DBContext.Context.cs">
+    <Compile Include="PostgresDBContext.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PostgreSQL_DBContext.Context.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PostgreSQL_DBContext.cs">
+    <Compile Include="PostgresDBContext.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="PostgreSQL_DBContext.Designer.cs">
+    <Compile Include="PostgresDBContext.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>PostgreSQL_DBContext.edmx</DependentUpon>
+      <DependentUpon>PostgresDBContext.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="proyecto.cs">
-      <DependentUpon>PostgreSQL_DBContext.tt</DependentUpon>
+      <DependentUpon>PostgresDBContext.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="PostgreSQL_DBContext.edmx">
+    <EntityDeploy Include="PostgresDBContext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PostgreSQL_DBContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>PostgresDBContext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="PostgreSQL_DBContext.edmx.diagram">
-      <DependentUpon>PostgreSQL_DBContext.edmx</DependentUpon>
+    <None Include="PostgresDBContext.edmx.diagram">
+      <DependentUpon>PostgresDBContext.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PostgreSQL_DBContext.Context.tt">
+    <Content Include="PostgresDBContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PostgreSQL_DBContext.edmx</DependentUpon>
-      <LastGenOutput>PostgreSQL_DBContext.Context.cs</LastGenOutput>
+      <DependentUpon>PostgresDBContext.edmx</DependentUpon>
+      <LastGenOutput>PostgresDBContext.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="PostgreSQL_DBContext.tt">
+    <Content Include="PostgresDBContext.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PostgreSQL_DBContext.edmx</DependentUpon>
-      <LastGenOutput>PostgreSQL_DBContext.cs</LastGenOutput>
+      <DependentUpon>PostgresDBContext.edmx</DependentUpon>
+      <LastGenOutput>PostgresDBContext.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

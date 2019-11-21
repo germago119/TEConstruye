@@ -7,16 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class cliente
+    public partial class ingeniero_especialidad
     {
-        public int cedula { get; set; }
-        public string nombre { get; set; }
-        public string apellido { get; set; }
-        public int telefono { get; set; }
+        public int cedula_ingeniero { get; set; }
+        public string nombre_especialidad { get; set; }
+        public short id_ingesp { get; set; }
+    
+        public virtual especialidad especialidad { get; set; }
+        public virtual ingeniero ingeniero { get; set; }
     }
 }

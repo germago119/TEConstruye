@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace DBContext
         public string nombre_obra { get; set; }
         public short id_etaobr { get; set; }
     
-        public virtual etapa etapa { get; set; }
-        public virtual obra obra { get; set; }
+       public virtual etapa etapa { get; set; }
+       public virtual obra obra { get; set; }
     }
 }

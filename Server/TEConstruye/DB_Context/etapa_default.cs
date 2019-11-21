@@ -7,30 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class obra
+    public partial class etapa_default
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public obra()
+        public etapa_default()
         {
-            this.etapa_obra = new HashSet<etapa_obra>();
+            this.etapa = new HashSet<etapa>();
         }
     
-        public string nombre { get; set; }
-        public string ubicacion { get; set; }
-        public int metcuadlote { get; set; }
-        public int metcuadconst { get; set; }
-        public int pisos { get; set; }
-        public Nullable<int> baños { get; set; }
-        public Nullable<int> canthabit { get; set; }
-        public string nombre_proyecto { get; set; }
+        public string nombreetapa { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<etapa_obra> etapa_obra { get; set; }
-        public virtual proyecto proyecto { get; set; }
+        public virtual ICollection<etapa> etapa { get; set; }
     }
 }

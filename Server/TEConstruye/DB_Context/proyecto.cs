@@ -7,25 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class material
+    public partial class proyecto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public material()
+        public proyecto()
         {
-            this.etapa = new HashSet<etapa>();
+            this.empleado = new HashSet<empleado>();
+            this.ingeniero = new HashSet<ingeniero>();
+            this.obra = new HashSet<obra>();
         }
     
-        public int codigo { get; set; }
         public string nombre { get; set; }
         public string proveedor { get; set; }
-        public int preciounitario { get; set; }
+        public int numero_factura { get; set; }
     
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<etapa> etapa { get; set; }
+        public virtual ICollection<empleado> empleado { get; set; }
+        public virtual factura factura { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ingeniero> ingeniero { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<obra> obra { get; set; }
+        
     }
 }

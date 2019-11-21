@@ -7,23 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DBContext
+namespace DB_Context
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class etapa_default
+    public partial class especialidad
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public etapa_default()
+        public especialidad()
         {
-            this.etapa = new HashSet<etapa>();
+            this.ingeniero_especialidad = new HashSet<ingeniero_especialidad>();
         }
     
-        public string nombreetapa { get; set; }
-        public string descripcion { get; set; }
+        public string nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<etapa> etapa { get; set; }
+        public virtual ICollection<ingeniero_especialidad> ingeniero_especialidad { get; set; }
     }
 }
