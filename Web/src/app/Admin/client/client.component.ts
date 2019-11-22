@@ -95,6 +95,7 @@ export class ClientComponent implements OnInit {
     this.http.postClient(this.model).subscribe(
       data => {
         console.log(data);
+        alert('Se agregó con éxito la etapa');
       },
       error => {
         console.log(error);
@@ -102,7 +103,7 @@ export class ClientComponent implements OnInit {
       }
     );
 
-    alert(JSON.stringify(this.model));
+    //alert(JSON.stringify(this.model));
     location.reload();
   }
 }

@@ -66,7 +66,8 @@ export class EtapasComponent implements OnInit {
     );
 
     //alert(JSON.stringify(this.model));
-    
+
+    location.reload();
   }
 
   showForm() {
