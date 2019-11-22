@@ -145,6 +145,12 @@ export class DataService {
       json
     );
   }
+  postEtapaDefault(json) {
+    return this.http.post(
+      'https://teconstruye20191121115206.azurewebsites.net/api/Etapa_Default',
+      json
+    );
+  }
   postEmpleado(json) {
     return this.http.post(
       'https://teconstruye20191121115206.azurewebsites.net/api/Empleado',

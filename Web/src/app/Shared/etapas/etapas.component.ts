@@ -16,12 +16,25 @@ export class EtapasComponent implements OnInit {
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'nombre',
+      key: 'NombreEtapa',
       type: 'input',
       templateOptions: {
         placeholder: '',
         label: 'Nombre: ',
         description: 'Nombre debe ser texto',
+        required: true,
+        addonLeft: {
+          class: 'icon ion-ios-clipboard bg-transparent border-primary'
+        }
+      }
+    },
+    {
+      key: 'Descripcion',
+      type: 'input',
+      templateOptions: {
+        placeholder: '',
+        label: 'Descripción: ',
+        description: 'Descripción debe ser texto',
         required: true,
         addonLeft: {
           class: 'icon ion-ios-clipboard bg-transparent border-primary'
@@ -35,7 +48,19 @@ export class EtapasComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    alert(JSON.stringify(this.model));
+    this.http.postEtapaDefault(this.model).subscribe(
+      data => {
+        console.log(data);
+        alert('Se agregó con éxito la etapa');
+      },
+      error => {
+        console.log(error);
+        alert('Ocurrió un error');
+      }
+    );
+
+    //alert(JSON.stringify(this.model));
+    
   }
 
   showForm() {
