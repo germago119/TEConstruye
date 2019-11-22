@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "i": "pnpm i"
+    "i": "pnpm i",
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
