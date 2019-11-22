@@ -43,13 +43,15 @@
           <thead>
             <tr>
               <th scope="col">Código</th>
+              <th scope="col">Proveedor</th>
               <th scope="col">Material</th>
               <th scope="col">Precio unitario</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of model">
+            <tr *ngFor="let data of material">
               <th scope="row" class="align-middle">{{ data.codigo }}</th>
+              <th scope="row" class="align-middle">{{ data.proveedor }}</th>
               <th scope="row" class="align-middle">
                 {{ data.nombre }}
               </th>

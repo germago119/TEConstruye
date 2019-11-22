@@ -48,16 +48,10 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of model">
+            <tr *ngFor="let data of clientes">
               <th scope="row" class="align-middle">{{ data.cedula }}</th>
               <th scope="row" class="align-middle">
-                {{
-                  data.nombre +
-                    ' ' +
-                    data.primerapellido +
-                    ' ' +
-                    data.segundoapellido
-                }}
+                {{ data.nombre + ' ' + data.apellido + ' ' }}
               </th>
               <th scope="row" class="align-middle">{{ data.telefono }}</th>
             </tr>

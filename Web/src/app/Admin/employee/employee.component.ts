@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-employee',
@@ -8,7 +9,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./employee.component.sass']
 })
 export class EmployeeComponent implements OnInit {
-  constructor() {}
+  constructor(private http: DataService) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -104,8 +105,19 @@ export class EmployeeComponent implements OnInit {
   ];
 
   show = false;
+  empleados;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.getEmpleado().subscribe(
+      data => {
+        this.empleados = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
   showForm() {
     this.show = !this.show;

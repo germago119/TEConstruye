@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-ing',
@@ -36,19 +37,6 @@ export class IngComponent implements OnInit {
         required: true,
         addonLeft: {
           class: 'icon ion-ios-bowtie bg-transparent border-primary '
-        }
-      }
-    },
-    {
-      key: 'apellido2',
-      type: 'input',
-      templateOptions: {
-        placeholder: '---',
-        label: 'Segundo Apellido: ',
-        description: 'Apellido debe ser texto',
-        required: true,
-        addonLeft: {
-          class: 'icon ion-ios-color-filter bg-transparent border-primary'
         }
       }
     },
@@ -127,7 +115,30 @@ export class IngComponent implements OnInit {
     alert(JSON.stringify(this.model));
   }
 
-  constructor() {}
+  constructor(private http: DataService) {}
 
-  ngOnInit() {}
+  inge;
+  enfasis;
+
+  ngOnInit() {
+    this.http.getIngeniero().subscribe(
+      data => {
+        this.inge = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+
+    this.http.getIngenieroEspecialidad().subscribe(
+      data => {
+        this.enfasis = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 }

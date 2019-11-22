@@ -45,6 +45,7 @@
           <thead>
             <tr>
               <th scope="col">Cédula</th>
+              <th scope="col">Codigo</th>
               <th scope="col">Nombre</th>
               <th scope="col">Especialidad</th>
               <th scope="col">Teléfono</th>
@@ -52,18 +53,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of model">
+            <tr *ngFor="let data of inge; let esp; of: enfasis">
               <th scope="row" class="align-middle">{{ data.cedula }}</th>
+              <th scope="row" class="align-middle">{{ data.codigo }}</th>
               <th scope="row" class="align-middle">
-                {{
-                  data.nombre +
-                    ' ' +
-                    data.primerapellido +
-                    ' ' +
-                    data.segundoapellido
-                }}
+                {{ data.nombre + ' ' + data.primerapellido }}
               </th>
-              <th scope="row" class="align-middle">{{ data.especialidad }}</th>
+              <th scope="row" class="align-middle">{{ esp.especialidad }}</th>
               <th scope="row" class="align-middle">{{ data.telefono }}</th>
               <th scope="row" class="align-middle">{{ data.codigo }}</th>
             </tr>

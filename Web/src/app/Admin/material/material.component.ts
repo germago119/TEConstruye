@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-material',
@@ -8,7 +9,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./material.component.sass']
 })
 export class MaterialComponent implements OnInit {
-  constructor() {}
+  constructor(private http: DataService) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -21,6 +22,19 @@ export class MaterialComponent implements OnInit {
         placeholder: 'John',
         label: 'Nombre: ',
         description: 'Nombre debe ser texto',
+        required: true,
+        addonLeft: {
+          class: 'icon ion-ios-hammer bg-transparent border-primary'
+        }
+      }
+    },
+    {
+      key: 'proveedor',
+      type: 'input',
+      templateOptions: {
+        placeholder: 'Holcim',
+        label: 'Proveedor: ',
+        description: 'Proveedor debe ser texto',
         required: true,
         addonLeft: {
           class: 'icon ion-ios-contact bg-transparent border-primary'
@@ -57,8 +71,19 @@ export class MaterialComponent implements OnInit {
   ];
 
   show = false;
+  material;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.getMaterial().subscribe(
+      data => {
+        this.material = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
   showForm() {
     this.show = !this.show;

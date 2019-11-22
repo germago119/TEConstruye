@@ -49,20 +49,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let data of model">
+            <tr *ngFor="let data of empleados">
               <th scope="row" class="align-middle">{{ data.cedula }}</th>
               <th scope="row" class="align-middle">
-                {{
-                  data.nombre +
-                    ' ' +
-                    data.primerapellido +
-                    ' ' +
-                    data.segundoapellido
-                }}
+                {{ data.nombre + ' ' + data.apellido }}
               </th>
               <th scope="row" class="align-middle">{{ data.telefono }}</th>
               <th scope="row" class="align-middle">
-                {{ currency(data.pago) }}
+                {{ currency(data.pagohora) }}
               </th>
             </tr>
           </tbody>

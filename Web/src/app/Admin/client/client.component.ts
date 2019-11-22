@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-client',
@@ -8,7 +9,7 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./client.component.sass']
 })
 export class ClientComponent implements OnInit {
-  constructor() {}
+  constructor(private http: DataService) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -28,7 +29,7 @@ export class ClientComponent implements OnInit {
       }
     },
     {
-      key: 'apellido1',
+      key: 'apellido',
       type: 'input',
       templateOptions: {
         placeholder: 'Doe',
@@ -37,19 +38,6 @@ export class ClientComponent implements OnInit {
         required: true,
         addonLeft: {
           class: 'icon ion-ios-bowtie bg-transparent border-primary '
-        }
-      }
-    },
-    {
-      key: 'apellido2',
-      type: 'input',
-      templateOptions: {
-        placeholder: '---',
-        label: 'Segundo Apellido: ',
-        description: 'Apellido debe ser texto',
-        required: true,
-        addonLeft: {
-          class: 'icon ion-ios-flower bg-transparent border-primary'
         }
       }
     },
@@ -89,7 +77,14 @@ export class ClientComponent implements OnInit {
 
   show = false;
 
-  ngOnInit() {}
+  clientes: any;
+
+  ngOnInit() {
+    this.http.getClient().subscribe(data => {
+      this.clientes = data;
+      console.log(this.clientes);
+    });
+  }
 
   showForm() {
     this.show = !this.show;

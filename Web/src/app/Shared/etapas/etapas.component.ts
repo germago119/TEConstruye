@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { Location } from '@angular/common';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-etapas',
@@ -41,7 +42,7 @@ export class EtapasComponent implements OnInit {
     this.show = !this.show;
   }
 
-  constructor(private location: Location) {}
+  constructor(private location: Location, private http: DataService) {}
 
   backClicked() {
     this.location.back();
