@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { DataService } from '../../data.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -42,12 +43,15 @@ export class EmployeeComponent implements OnInit {
       }
     },
     {
-      key: 'apellido2',
-      type: 'input',
+      key: 'nombreproyecto',
+      type: 'select',
       templateOptions: {
         placeholder: '---',
-        label: 'Segundo Apellido: ',
-        description: 'Apellido debe ser texto',
+        options: this.getNombre(),
+        valueProp: '$id',
+        labelProp: 'nombre',
+        label: 'Nombre del proyecto: ',
+        description: 'Debe ser texto',
         required: true,
         addonLeft: {
           class: 'icon ion-ios-color-filter bg-transparent border-primary'
@@ -106,11 +110,21 @@ export class EmployeeComponent implements OnInit {
 
   show = false;
   empleados;
+  proyecto;
 
   ngOnInit() {
     this.http.getEmpleado().subscribe(
       data => {
         this.empleados = data;
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+    this.http.getProyecto().subscribe(
+      data => {
+        this.proyecto = data;
         console.log(data);
       },
       error => {
@@ -135,5 +149,9 @@ export class EmployeeComponent implements OnInit {
 
   submit() {
     alert(JSON.stringify(this.model));
+  }
+
+  getNombre(): Observable<any[]> {
+    return of(this.proyecto);
   }
 }

@@ -92,6 +92,16 @@ export class ClientComponent implements OnInit {
   }
 
   submit() {
+    this.http.postClient(this.model).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        alert('Ocurrió un error');
+      }
+    );
+
     alert(JSON.stringify(this.model));
   }
 }
