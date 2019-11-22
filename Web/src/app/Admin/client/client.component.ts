@@ -9,7 +9,7 @@ import { DataService } from '../../data.service';
   styleUrls: ['./client.component.sass']
 })
 export class ClientComponent implements OnInit {
-  constructor(private http: DataService) {}
+  constructor(private http: DataService, private location: Location) {}
 
   form = new FormGroup({});
   model: any = {};
@@ -103,5 +103,6 @@ export class ClientComponent implements OnInit {
     );
 
     alert(JSON.stringify(this.model));
+    location.reload();
   }
 }

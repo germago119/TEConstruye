@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./hours.component.sass']
 })
 export class HoursComponent implements OnInit {
-  constructor(private http: DataService) {}
+  constructor(private http: DataService, private location: Location) {}
 
   totalEmpleados;
 
@@ -72,5 +72,7 @@ export class HoursComponent implements OnInit {
 
   submit() {
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 }

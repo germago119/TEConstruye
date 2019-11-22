@@ -9,7 +9,7 @@ import { DataService } from '../../data.service';
   styleUrls: ['./material.component.sass']
 })
 export class MaterialComponent implements OnInit {
-  constructor(private http: DataService) {}
+  constructor(private http: DataService, private location: Location) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -101,6 +101,8 @@ export class MaterialComponent implements OnInit {
     );
 
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 
   currency(money: number) {

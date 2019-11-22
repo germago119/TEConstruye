@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./employee.component.sass']
 })
 export class EmployeeComponent implements OnInit {
-  constructor(private http: DataService) {}
+  constructor(private http: DataService, private location: Location) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -159,6 +159,8 @@ export class EmployeeComponent implements OnInit {
     );
 
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 
   getNombre(): Observable<any[]> {

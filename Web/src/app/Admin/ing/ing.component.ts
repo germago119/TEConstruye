@@ -10,7 +10,7 @@ import { Observable, of } from 'rxjs';
   styleUrls: ['./ing.component.sass']
 })
 export class IngComponent implements OnInit {
-  constructor(private http: DataService) {}
+  constructor(private http: DataService, private location: Location) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -128,6 +128,8 @@ export class IngComponent implements OnInit {
     );
 
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 
   ngOnInit() {
@@ -152,8 +154,10 @@ export class IngComponent implements OnInit {
       }
     );
   }
+}
 
-  getNombre(): Observable<any[]> {
-    return of(this.enfasis);
-  }
+export interface Esp {
+  $id: string;
+  ingeniero_especialidad: any[];
+  nombre: string;
 }

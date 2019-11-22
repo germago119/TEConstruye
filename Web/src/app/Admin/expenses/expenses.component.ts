@@ -65,9 +65,11 @@ export class ExpensesComponent implements OnInit {
 
   submit() {
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService, private location: Location) {}
 
   ngOnInit() {}
 }

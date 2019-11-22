@@ -49,5 +49,7 @@ export class EtapasPorProyectoComponent implements OnInit {
 
   submit() {
     alert(JSON.stringify(this.model));
+
+    location.reload();
   }
 }

@@ -9,12 +9,9 @@ import { DataService } from '../../data.service';
   styleUrls: ['./obras.component.sass']
 })
 export class ObrasComponent implements OnInit {
-
   constructor(private http: DataService) {}
 
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   form = new FormGroup({});
   model: any = {};
@@ -124,9 +121,6 @@ export class ObrasComponent implements OnInit {
       }
     },
 
-
-
-
     {
       key: 'Nombre_Proyecto',
       type: 'select',
@@ -134,8 +128,8 @@ export class ObrasComponent implements OnInit {
         label: 'Seleccione el proyecto: ',
         options: [
           {
-            "nombre": 'Proyecto X',
-            "value": 'Proyecto X'
+            nombre: 'Proyecto X',
+            value: 'Proyecto X'
           }
         ],
         required: true,
@@ -145,8 +139,6 @@ export class ObrasComponent implements OnInit {
       }
     }
   ];
-
-
 
   submit() {
     this.http.postObra(this.model).subscribe(
@@ -160,5 +152,6 @@ export class ObrasComponent implements OnInit {
     );
 
     alert(JSON.stringify(this.model));
+    location.reload();
   }
 }
