@@ -9,7 +9,7 @@ Cedula INT PRIMARY KEY NOT NULL,
 Nombre VARCHAR(30) NOT NULL,
 Apellido1 VARCHAR(30) NOT NULL,
 Apellido2 VARCHAR(30),
-Nacionalidad VARCHAR(30),
+Nacionalidad VARCHAR(50),
 Correo VARCHAR(50),
 )
 
@@ -27,34 +27,30 @@ ID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
 Precio INT NOT NULL,
 Direccion_Exacta VARCHAR(150) NOT NULL,
 Titulo VARCHAR(30) NOT NULL,
-Parqueo_Visitas BIT NOT NULL,
 Niveles INT NOT NULL,
-Piscina BIT NOT NULL,
-Gimnasio BIT NOT NULL,
 Tamano_Terreno INT NOT NULL,
 Tamano_Construccion INT NOT NULL,
 Cant_Habitaciones INT NOT NULL,
 Cant_Banos INT NOT NULL,
 Cant_Parqueos INT NOT NULL,
-Descripcion VARCHAR(350) NOT NULL,
-Foto_Principal VARCHAR(100) NOT NULL,
 Ubicacion VARCHAR(50) NOT NULL,
 Cedula_Cliente INT NOT NULL,
 FOREIGN KEY (Cedula_Cliente) REFERENCES CLIENTE(Cedula)
 )
 
-GO 
 
-/**INSERTY TOTAL*/
-INSERT INTO CLIENTE
-SELECT E.Cedula,E.Nombre,E.Apellido1,E.Apellido2,E.Nacionalidad,E.Correo
-FROM [EJEMPLO$] AS E
-
-/**INSERT MINIMO */
-INSERT INTO CLIENTE(Cedula,Nombre,Apellido1)
-SELECT E.Cedula,E.Nombre,E.Apellido1
-FROM [EJEMPLO$] AS E
+DELETE FROM [Worksheet$]
+    WHERE Cedula IN (SELECT Cedula FROM [Worksheet$] 
+            GROUP BY Cedula
+            HAVING COUNT(*)>1);/**INSERT MINIMO */
 
 
+
+USE TECres2
+INSERT INTO CLIENTE(Cedula,Nombre,Apellido1,Nacionalidad,Correo)
+SELECT CONVERT(INT,REPLACE(Cedula,'-','')) AS Cedula, left(nombre, CHARINDEX(' ', nombre)) as Nombre,
+substring(nombre, CHARINDEX(' ', nombre)+1, len(nombre)-(CHARINDEX(' ', 
+nombre)-1)) as Apellido1,W.Nacionalidad,W.Correo
+from [Worksheet$] AS W;
 
 
