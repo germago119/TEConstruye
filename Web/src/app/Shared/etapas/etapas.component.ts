@@ -44,8 +44,14 @@ export class EtapasComponent implements OnInit {
   ];
 
   show = false;
+  etapas;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.http.getEtapa_Default().subscribe(data => {
+      this.etapas = data;
+      console.log(this.etapas);
+    });
+  }
 
   submit() {
     this.http.postEtapaDefault(this.model).subscribe(
