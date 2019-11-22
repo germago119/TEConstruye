@@ -39,6 +39,12 @@ FOREIGN KEY (Cedula_Cliente) REFERENCES CLIENTE(Cedula)
 )
 
 
+
+USE TECres2
+UPDATE Worksheet$
+SET Cedula=CONVERT(INT,REPLACE(Cedula,'-',''));
+
+
 DELETE FROM [Worksheet$]
     WHERE Cedula IN (SELECT Cedula FROM [Worksheet$] 
             GROUP BY Cedula
@@ -48,9 +54,7 @@ DELETE FROM [Worksheet$]
 
 USE TECres2
 INSERT INTO CLIENTE(Cedula,Nombre,Apellido1,Nacionalidad,Correo)
-SELECT CONVERT(INT,REPLACE(Cedula,'-','')) AS Cedula, left(nombre, CHARINDEX(' ', nombre)) as Nombre,
+SELECT Cedula, left(nombre, CHARINDEX(' ', nombre)) as Nombre,
 substring(nombre, CHARINDEX(' ', nombre)+1, len(nombre)-(CHARINDEX(' ', 
 nombre)-1)) as Apellido1,W.Nacionalidad,W.Correo
 from [Worksheet$] AS W;
-
-
