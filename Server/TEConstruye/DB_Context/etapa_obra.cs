@@ -18,7 +18,7 @@ namespace DB_Context
         public string nombre_obra { get; set; }
         public short id_etaobr { get; set; }
     
-       public virtual etapa etapa { get; set; }
-       public virtual obra obra { get; set; }
+        public virtual etapa etapa { get; set; }
+        public virtual obra obra { get; set; }
     }
 }

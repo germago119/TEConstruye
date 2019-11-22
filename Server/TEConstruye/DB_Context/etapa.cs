@@ -17,7 +17,7 @@ namespace DB_Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public etapa()
         {
-           this.etapa_obra = new HashSet<etapa_obra>();
+            this.etapa_obra = new HashSet<etapa_obra>();
         }
     
         public int codigo { get; set; }
@@ -32,6 +32,5 @@ namespace DB_Context
         public virtual material material { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<etapa_obra> etapa_obra { get; set; }
-        
     }
 }

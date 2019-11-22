@@ -26,7 +26,6 @@ namespace DB_Context
         public string proveedor { get; set; }
         public int numero_factura { get; set; }
     
-        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<empleado> empleado { get; set; }
         public virtual factura factura { get; set; }
@@ -34,6 +33,5 @@ namespace DB_Context
         public virtual ICollection<ingeniero> ingeniero { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<obra> obra { get; set; }
-        
     }
 }

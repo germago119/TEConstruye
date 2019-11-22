@@ -15,7 +15,6 @@ namespace DB_Context
     public partial class ingeniero
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        
         public ingeniero()
         {
             this.ingeniero_especialidad = new HashSet<ingeniero_especialidad>();
@@ -31,6 +30,5 @@ namespace DB_Context
         public virtual proyecto proyecto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ingeniero_especialidad> ingeniero_especialidad { get; set; }
-        
     }
 }

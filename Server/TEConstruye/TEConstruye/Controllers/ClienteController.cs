@@ -17,6 +17,7 @@ namespace TEConstruye.Controllers
     {
         private teconstruyeEntities db = new teconstruyeEntities();
 
+
         public IHttpActionResult Options()
         {
             HttpContext.Current.Response.AppendHeader("Allow", "GET,DELETE,PUT,POST,OPTIONS");

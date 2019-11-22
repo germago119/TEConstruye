@@ -22,6 +22,6 @@ namespace DB_Context
         public Nullable<int> pagohora { get; set; }
         public string nombre_proyecto { get; set; }
     
-       public virtual proyecto proyecto { get; set; }
+        public virtual proyecto proyecto { get; set; }
     }
 }

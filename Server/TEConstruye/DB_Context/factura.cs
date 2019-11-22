@@ -17,7 +17,7 @@ namespace DB_Context
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public factura()
         {
-           this.proyecto = new HashSet<proyecto>();
+            this.proyecto = new HashSet<proyecto>();
         }
     
         public int numero { get; set; }
