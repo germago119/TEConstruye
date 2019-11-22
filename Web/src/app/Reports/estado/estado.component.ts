@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-estado',
@@ -6,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./estado.component.sass']
 })
 export class EstadoComponent implements OnInit {
-  constructor() {}
+  estado: any;
 
-  ngOnInit() {}
+  constructor(private http: DataService) {}
+
+  ngOnInit() {
+    /* GET proyectos */
+  }
+
+  colones(money: number) {
+    const formatter = new Intl.NumberFormat('es-CR', {
+      style: 'colones',
+      currency: 'CRC'
+    });
+
+    return formatter.format(money);
+  }
 }

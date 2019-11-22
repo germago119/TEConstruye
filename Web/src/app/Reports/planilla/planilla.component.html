@@ -1,1 +1,33 @@
-<p>planilla works!</p>
+<div class="container-fluid my-3 mx-4 align-items-center">
+  <h1 class="text-center text-primary py-5">Reporte de Planilla</h1>
+
+  <!-- Tabla -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre de Empleado</th>
+        <th scope="col">Apellido de Empleado</th>
+        <th scope="col">Nombre de Proyecto</th>
+        <th scope="col">Pago Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let planilla of planillas">
+        <th scope="row" class="align-middle">
+          {{ planilla.nombre_empleado }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ planilla.apellido_empleado }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ planilla.nombre_proyecto }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ colones(planilla.pagototal) }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <a class="btn btn-outline-light my-5" routerLink="/admin">CANCELAR</a>
+</div>

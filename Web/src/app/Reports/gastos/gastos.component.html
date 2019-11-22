@@ -1,1 +1,25 @@
-<p>gastos works!</p>
+<div class="container-fluid my-3 mx-4 align-items-center">
+  <h1 class="text-center text-primary py-5">Reporte de Gastos</h1>
+
+  <!-- Tabla -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre del Proyecto</th>
+        <th scope="col">Gastos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gasto of gastos">
+        <th scope="row" class="align-middle">
+          {{ gasto.nombre_proyecto }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ colones(gasto.gastos) }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <a class="btn btn-outline-light my-5" routerLink="/admin">CANCELAR</a>
+</div>

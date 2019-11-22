@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-r-presupuesto',
@@ -6,7 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./r-presupuesto.component.sass']
 })
 export class RPresupuestoComponent implements OnInit {
-  constructor() {}
+  presupuestos: any;
+
+  constructor(private http: DataService) {}
 
   ngOnInit() {}
+
+  colones(money: number) {
+    const formatter = new Intl.NumberFormat('es-CR', {
+      style: 'colones',
+      currency: 'CRC'
+    });
+
+    return formatter.format(money);
+  }
 }

@@ -1,1 +1,37 @@
-<p>estado works!</p>
+<div class="container-fluid my-3 mx-4 align-items-center">
+  <h1 class="text-center text-primary py-5">Reporte de Estado</h1>
+
+  <!-- Tabla -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Etapa</th>
+        <th scope="col">Proyecto</th>
+        <th scope="col">Presupuestado</th>
+        <th scope="col">Costo</th>
+        <th scope="col">Diferencia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let etapa of estado">
+        <th scope="row" class="align-middle">
+          {{ etapa.nombre_proyecto }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ etapa.nombre_etapa }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ colones(etapa.presupuesto) }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ colones(etapa.costo) }}
+        </th>
+        <th scope="row" class="align-middle">
+          {{ colones(etapa.diferencia) }}
+        </th>
+      </tr>
+    </tbody>
+  </table>
+
+  <a class="btn btn-outline-light my-5" routerLink="/admin">CANCELAR</a>
+</div>
