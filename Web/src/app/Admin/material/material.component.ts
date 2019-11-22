@@ -55,7 +55,7 @@ export class MaterialComponent implements OnInit {
       }
     },
     {
-      key: 'precio',
+      key: 'preciounitario',
       type: 'input',
       templateOptions: {
         type: 'number',
@@ -90,6 +90,16 @@ export class MaterialComponent implements OnInit {
   }
 
   submit() {
+    this.http.postMaterial(this.model).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        alert('Ocurrió un error');
+      }
+    );
+
     alert(JSON.stringify(this.model));
   }
 
