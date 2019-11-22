@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { DataService } from '../../data.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-ing',
@@ -9,6 +10,7 @@ import { DataService } from '../../data.service';
   styleUrls: ['./ing.component.sass']
 })
 export class IngComponent implements OnInit {
+  constructor(private http: DataService) {}
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -28,11 +30,11 @@ export class IngComponent implements OnInit {
       }
     },
     {
-      key: 'apellido1',
+      key: 'apellido',
       type: 'input',
       templateOptions: {
         placeholder: 'Doe',
-        label: 'Primer Apellido: ',
+        label: 'Apellido: ',
         description: 'Apellido debe ser texto',
         required: true,
         addonLeft: {
@@ -107,18 +109,26 @@ export class IngComponent implements OnInit {
 
   show = false;
 
+  inge;
+  enfasis;
+
   showForm() {
     this.show = !this.show;
   }
 
   submit() {
+    this.http.postClient(this.model).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+        alert('Ocurrió un error');
+      }
+    );
+
     alert(JSON.stringify(this.model));
   }
-
-  constructor(private http: DataService) {}
-
-  inge;
-  enfasis;
 
   ngOnInit() {
     this.http.getIngeniero().subscribe(
@@ -131,14 +141,19 @@ export class IngComponent implements OnInit {
       }
     );
 
-    this.http.getIngenieroEspecialidad().subscribe(
+    this.http.getESP().subscribe(
       data => {
         this.enfasis = data;
         console.log(data);
+        console.log('ESP');
       },
       error => {
         console.log(error);
       }
     );
+  }
+
+  getNombre(): Observable<any[]> {
+    return of(this.enfasis);
   }
 }

@@ -24,6 +24,11 @@ export class DataService {
       'https://teconstruye20191121115206.azurewebsites.net/api/Cliente'
     );
   }
+  getESP() {
+    return this.http.get(
+      'https://teconstruye20191121115206.azurewebsites.net/api/Especialidad'
+    );
+  }
   getEmpleado() {
     return this.http.get(
       'https://teconstruye20191121115206.azurewebsites.net/api/Empleado'
@@ -155,6 +160,12 @@ export class DataService {
   postEtapa(json) {
     return this.http.post(
       'https://teconstruye20191121115206.azurewebsites.net/api/Etapa',
+      json
+    );
+  }
+  postExpense(json) {
+    return this.http.post(
+      'https://teconstruye20191121115206.azurewebsites.net/api/Gasto',
       json
     );
   }
