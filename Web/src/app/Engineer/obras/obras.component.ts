@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { DataService } from '../../data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-obras',
@@ -10,8 +11,6 @@ import { DataService } from '../../data.service';
 })
 export class ObrasComponent implements OnInit {
   constructor(private http: DataService) {}
-
-  ngOnInit() {}
 
   form = new FormGroup({});
   model: any = {};
@@ -139,6 +138,8 @@ export class ObrasComponent implements OnInit {
       }
     }
   ];
+
+  ngOnInit() {}
 
   submit() {
     this.http.postObra(this.model).subscribe(

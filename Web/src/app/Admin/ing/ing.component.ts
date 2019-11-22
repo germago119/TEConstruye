@@ -3,6 +3,7 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { DataService } from '../../data.service';
 import { Observable, of } from 'rxjs';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-ing',

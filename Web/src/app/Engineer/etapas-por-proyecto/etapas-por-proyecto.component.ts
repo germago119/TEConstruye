@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-etapas-por-proyecto',
@@ -14,30 +15,19 @@ export class EtapasPorProyectoComponent implements OnInit {
 
   fields: FormlyFieldConfig[] = [
     {
-      key: 'proyecto',
+      key: 'Nombre_Proyecto',
       type: 'select',
       templateOptions: {
-        label: 'Proyecto: ',
-        //options: this.dataService.getMaterials(),
-        valueProp: 'id',
-        labelProp: 'name',
+        label: 'Seleccione el proyecto: ',
+        options: [
+          {
+            nombre: 'Proyecto X',
+            value: 'Proyecto X'
+          }
+        ],
         required: true,
         addonLeft: {
-          class: 'icon ion-ios-hammer bg-transparent border-primary'
-        }
-      }
-    },
-    {
-      key: 'etapa',
-      type: 'select',
-      templateOptions: {
-        label: 'Etapa: ',
-        //options: this.dataService.getMaterials(),
-        valueProp: 'id',
-        labelProp: 'name',
-        required: true,
-        addonLeft: {
-          class: 'icon ion-ios-clipboard bg-transparent border-primary'
+          class: 'icon ion-ios-home bg-transparent border-primary'
         }
       }
     }

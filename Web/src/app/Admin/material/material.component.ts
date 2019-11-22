@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import { DataService } from '../../data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-material',
@@ -101,7 +102,7 @@ export class MaterialComponent implements OnInit {
       }
     );
 
-    //alert(JSON.stringify(this.model));
+    // alert(JSON.stringify(this.model));
 
     location.reload();
   }
