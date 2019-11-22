@@ -10,6 +10,7 @@ import { DataService } from '../../data.service';
 })
 export class ClientComponent implements OnInit {
   constructor(private http: DataService) {}
+
   form = new FormGroup({});
   model: any = {};
   options: FormlyFormOptions = {};
@@ -77,7 +78,7 @@ export class ClientComponent implements OnInit {
 
   show = false;
 
-  clientes: any;
+  clientes;
 
   ngOnInit() {
     this.http.getClient().subscribe(data => {
