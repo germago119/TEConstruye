@@ -60,7 +60,7 @@ export class DataService {
     );
   }
   getProyecto() {
-    return this.http.get(
+    return this.http.get<any[]>(
       'https://teconstruye20191121115206.azurewebsites.net/api/Proyecto'
     );
   }
@@ -130,6 +130,13 @@ export class DataService {
   postClient(json) {
     return this.http.post(
       'https://teconstruye20191121115206.azurewebsites.net/api/Cliente',
+      json
+    );
+  }
+
+  postObra(json) {
+    return this.http.post(
+      'https://teconstruye20191121115206.azurewebsites.net/api/Obra',
       json
     );
   }

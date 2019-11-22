@@ -148,7 +148,8 @@ export class EmployeeComponent implements OnInit {
   }
 
   submit() {
-    alert(JSON.stringify(this.model));
+    alert(JSON.stringify(this.model.salario));
+    
   }
 
   getNombre(): Observable<any[]> {
